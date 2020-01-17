@@ -1,7 +1,6 @@
 .form {
-  width: 90%;
-  padding: 20px;
-  background: rgb(0, 47, 255);
+  width: 95%;
+  // padding: 20px 0;
   border-radius: 10px;
   color: white;
   display: flex;
@@ -13,8 +12,16 @@
   
   input {
     margin: 10px 0;
-    width: 90%;
+    width: 100%;
     padding: 5px 10px;
     border-radius: 5px;
+    font-size: 1em;
+    color: rgb(77, 77, 77);
   }
+}
+
+button {
+  width: 150px;
+  margin: 20px;
+  align-self: center;
 }

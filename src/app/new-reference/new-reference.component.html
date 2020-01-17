@@ -1,5 +1,20 @@
-<h1>This is the home page where the new references will be added</h1>
+<h1>Referencer</h1>
+<h2>Add a new reference</h2>
 <div class="form">
   <label for="author">Author(s)</label>
-  <input type="text" name="author">
+  <input type="text" name="author" [(ngModel)]="author">
+  
+  <label for="publication">Publication</label>
+  <input type="text" name="publication" [(ngModel)]="publication">
+
+  <label for="publisher">Publisher</label>
+  <input type="text" name="publisher" [(ngModel)]="publisher">
+
+  <label for="url">URL</label>
+  <input type="text" name="url" [(ngModel)]="url">
+
+  <label for="year">Year</label>
+  <input type="text" name="year" [(ngModel)]="year">
+
+  <button mat-raised-button type="submit" (click)="submitForm()">Submit</button>
 </div>

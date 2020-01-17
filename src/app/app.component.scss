@@ -1,21 +1,42 @@
-.navbar {
-  height: 50px;
-  background: rgb(0, 47, 255);
+.app-wrapper {
   display: flex;
   flex-direction: row;
-  padding: 0 50px;
+  background: orangered;
+  height: 100vh;
+}
+
+.navbar {
+  width: 15vw;
+  min-width: 100px;
+  background: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   a {
+    width: 100%;
+    height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0 20px;
-    color: white;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: -20px;
     text-decoration: none;
+    color: orangered;
+    padding-left: 0.8vw;
+  }
+  
+  .active-link {
+    background: orangered;
+    color: white;
+    cursor: pointer;
   }
 }
 
 .page-wrap {
-  padding: 40px 80px;
+  padding: 40px 60px;
+  color: white;
+  width: 100vw - 15vw;
 }
