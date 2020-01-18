@@ -5,7 +5,7 @@ import { IForm } from '../interfaces/form';
 
 export class LocalDB {
   private dbName = 'referencerDb';
-  private storeName = 'refs';
+  private store = 'refs';
   private version = 1;
   private db;
 
@@ -20,12 +20,12 @@ export class LocalDB {
     };
     request.onupgradeneeded = () => {
       const options = { keyPath: 'id', autoIncrement: true };
-      request.result.createObjectStore(this.storeName, options);
+      request.result.createObjectStore(this.store, options);
     };
   }
 
   public addData(data: IForm): void {
-    const tx = this.db.transaction(this.storeName, 'readwrite').objectStore(this.storeName);
+    const tx = this.db.transaction(this.store, 'readwrite').objectStore(this.store);
     const request = tx.add(data);
     request.onsuccess = () => {
       console.log(request);
@@ -34,12 +34,12 @@ export class LocalDB {
 
   public async getAllRefs(): Promise<Array<IForm>> {
     const promise = new Promise<Array<IForm>>((resolve, reject) => {
-      const tx = this.db.transaction(this.storeName, 'readwrite').objectStore(this.storeName);
+      const tx = this.db.transaction(this.store, 'readwrite').objectStore(this.store);
       const data = tx.getAll();
       data.onsuccess = () => resolve(data.result);
       data.onerror = () => reject(data.error);
     });
-    return promise;
+    return promise; // will have to be an observable/subscription at some point
   }
 
   public deleteData(): void {
