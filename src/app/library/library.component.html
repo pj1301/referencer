@@ -1,1 +1,12 @@
-<h1>This is the library page where all references can be searched.</h1>
+<h1>Referencer</h1>
+<h2>Your saved references are below</h2>
+
+<div class="viewing-panel">
+  {{selectedRef}}
+</div>
+
+<div class="list-panel">
+  <div *ngFor="let ref of references" class="ref-card">
+    <p>{{ref.title}}</p>
+  </div>
+</div>

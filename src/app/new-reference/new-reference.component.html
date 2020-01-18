@@ -1,20 +1,51 @@
-<h1>Referencer</h1>
-<h2>Add a new reference</h2>
-<div class="form">
-  <label for="author">Author(s)</label>
-  <input type="text" name="author" [(ngModel)]="author">
-  
-  <label for="publication">Publication</label>
-  <input type="text" name="publication" [(ngModel)]="publication">
+<div class="content-wrap">
+  <h1>Referencer</h1>
+  <h2>Add a new reference</h2>
+  <div class="form">
 
-  <label for="publisher">Publisher</label>
-  <input type="text" name="publisher" [(ngModel)]="publisher">
+    <div class="one">
+      <div>
+        <label for="title">Title</label>
+        <input type="text" name="title" [(ngModel)]="title">
+      </div>
+    
+      <div>
+        <label for="author">Author(s)</label>
+        <input type="text" name="author" [(ngModel)]="author">
+      </div>
+    </div>
+    
+    <div class="two">
+      <div>
+        <label for="publication">Publication</label>
+        <input type="text" name="publication" [(ngModel)]="publication">
+      </div>
+      
+      <div>
+        <label for="publisher">Publisher</label>
+        <input type="text" name="publisher" [(ngModel)]="publisher">
+      </div>
+    </div>
 
-  <label for="url">URL</label>
-  <input type="text" name="url" [(ngModel)]="url">
+    <div class="one">
+      <div>
+        <label for="url">URL</label>
+        <input type="text" name="url" [(ngModel)]="url">
+      </div>
+    </div>
 
-  <label for="year">Year</label>
-  <input type="text" name="year" [(ngModel)]="year">
+    <div class="two">
+      <div>
+        <label for="year">Year</label>
+        <input type="text" name="year" [(ngModel)]="year">
+      </div>
+      
+      <div>
+        <label for="placeholder">placeholder</label>
+        <input type="text" name="placeholder">
+      </div>
+    </div>
 
-  <button mat-raised-button type="submit" (click)="submitForm()">Submit</button>
+    <button mat-raised-button type="submit" (click)="submitForm()">Submit</button>
+  </div>
 </div>

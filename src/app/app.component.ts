@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDB } from './services/local-db.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,10 @@ import { LocalDB } from './services/local-db.service';
 export class AppComponent implements OnInit {
   title = 'referencer';
 
-  constructor(private localDb: LocalDB) {}
+  constructor(private router: Router, private localDb: LocalDB) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.router.navigate(['']);
     this.localDb.startDB();
   }
 }
