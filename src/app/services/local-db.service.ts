@@ -32,18 +32,29 @@ export class LocalDB {
     };
   }
 
-  public async getAllRefs(): Promise<Array<IForm>> {
+  public getAllRefs(): Promise<Array<IForm>> {
     const promise = new Promise<Array<IForm>>((resolve, reject) => {
       const tx = this.db.transaction(this.store, 'readwrite').objectStore(this.store);
-      const data = tx.getAll();
-      data.onsuccess = () => resolve(data.result);
-      data.onerror = () => reject(data.error);
+      const request = tx.getAll();
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error);
     });
     return promise; // will have to be an observable/subscription at some point
   }
 
-  public deleteData(): void {
-    console.log('deleting data');
+  public updateRef(reference): Promise<any> {
+    const promise = new Promise((resolve, reject) => {
+      const tx = this.db.transaction(this.store, 'readwrite').objectStore(this.store);
+      const request = tx.put(reference);
+      request.onsuccess = () => resolve('Record updated');
+      request.onerror = () => resolve('There was an error');
+    })
+    return promise;
+  }
+  
+  public deleteData(ids: Array<string>): void {
+    const tx = this.db.transaction(this.store, 'readwrite').objectStore(this.store);
+    ids.forEach(id => tx.delete(id));
   }
 
 }

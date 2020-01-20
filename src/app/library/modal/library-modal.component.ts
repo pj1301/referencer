@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-library-modal',
@@ -9,5 +9,9 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 
 export class LibraryModalComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(
+    public dialogRef: MatDialogRef<LibraryModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
+
 }
