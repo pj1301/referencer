@@ -47,7 +47,7 @@ export class LocalDB {
       const tx = this.db.transaction(this.store, 'readwrite').objectStore(this.store);
       const request = tx.put(reference);
       request.onsuccess = () => resolve('Record updated');
-      request.onerror = () => resolve('There was an error');
+      request.onerror = () => reject('There was an error');
     })
     return promise;
   }
