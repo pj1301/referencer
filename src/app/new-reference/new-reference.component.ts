@@ -25,6 +25,7 @@ export class NewReferenceComponent {
     this.localDb.addData(data);
     this.clearData();
   }
+
   private createFormObject(): IForm {
     const form = {
       author: this.author,

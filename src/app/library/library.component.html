@@ -2,11 +2,29 @@
 <h2>Your saved references are below</h2>
 
 <div class="viewing-panel">
-  {{selectedRef}}
+  <div *ngIf="refToDisplay">
+    <p>Title: {{refToDisplay.title}}</p>
+    <p>Author: {{refToDisplay.title}}</p>
+    <p>Publication: {{refToDisplay.publication}}</p>
+    <p>Publisher: {{refToDisplay.publisher}}</p>
+  </div>
+</div>
+
+<div class="btn-panel">
+  <button class="normal" mat-raised-button (click)="editReference()">Edit</button>
+  <button class="normal" mat-raised-button (click)="exportReference()">Export</button>
+  <button class="danger" mat-raised-button (click)="deleteReference()">Delete</button>
 </div>
 
 <div class="list-panel">
   <div *ngFor="let ref of references" class="ref-card">
-    <p>{{ref.title}}</p>
+    <div class="content" (click)="displayInfo(ref.id)">
+      <p>Title: {{ref.title}}</p>
+      <p>Author: {{ref.title}}</p>
+      <p>Publication: {{ref.publication}}</p>
+    </div>
+    <div class="check-box">
+      <mat-checkbox (change)="addToList(ref.id)"></mat-checkbox>
+    </div>
   </div>
 </div>
