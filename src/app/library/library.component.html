@@ -3,10 +3,17 @@
 
 <div class="viewing-panel">
   <div *ngIf="refToDisplay">
-    <p>Title: {{refToDisplay.title}}</p>
-    <p>Author: {{refToDisplay.author}}</p>
-    <p>Publication: {{refToDisplay.publication}}</p>
-    <p>Publisher: {{refToDisplay.publisher}}</p>
+    <p>ID: {{refToDisplay.id}}</p>
+    <p>Accessed: {{refToDisplay.accessed}}</p>
+    <p *ngIf="refToDisplay.title">Title: {{refToDisplay.title}}</p>
+    <p *ngIf="refToDisplay.author">Author: {{refToDisplay.author}}</p>
+    <p *ngIf="refToDisplay.publication">Publication: {{refToDisplay.publication}}</p>
+    <p *ngIf="refToDisplay.publisher">Publisher: {{refToDisplay.publisher}}</p>
+    <p *ngIf="refToDisplay.edition">Edition: {{refToDisplay.edition}}</p>
+    <p *ngIf="refToDisplay.year">Year: {{refToDisplay.year}}</p>
+    <p *ngIf="refToDisplay.city">City: {{refToDisplay.city}}</p>
+    <p *ngIf="refToDisplay.online">Online: {{refToDisplay.online}}</p>
+    <p *ngIf="refToDisplay.url">URL: {{refToDisplay.url}}</p>
   </div>
 </div>
 
@@ -20,7 +27,7 @@
   <div *ngFor="let ref of references" class="ref-card">
     <div class="content" (click)="displayInfo(ref.id)">
       <p>Title: {{ref.title}}</p>
-      <p>Author: {{ref.title}}</p>
+      <p>Author: {{ref.author}}</p>
       <p>Publication: {{ref.publication}}</p>
     </div>
     <div class="check-box">

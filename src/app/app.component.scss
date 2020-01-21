@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: row;
   background: orangered;
-  height: 100vh;
+  height: 100%;
 }
 
 .navbar {
   width: 15vw;
   min-width: 100px;
   background: white;
-  height: 100vh;
+  height: 100% !important;
   display: flex;
   flex-direction: column;
 

@@ -27,8 +27,12 @@
       </div>
     </div>
 
-    <div class="one">
-      <div>
+    <div class="three">
+      <div class="input">
+        <label for="web">Online?</label>
+        <mat-checkbox class="input-check" name="web" [(ngModel)]="online"></mat-checkbox>
+      </div>
+      <div class="address">
         <label for="url">URL</label>
         <input type="text" name="url" [(ngModel)]="url">
       </div>
@@ -36,13 +40,26 @@
 
     <div class="two">
       <div>
+        <label for="placeholder">Pages</label>
+        <input type="text" name="pages" [(ngModel)]="pages">
+      </div>
+      
+
+      <div>
         <label for="year">Year</label>
         <input type="text" name="year" [(ngModel)]="year">
       </div>
-      
+    </div>
+
+    <div class="two">
       <div>
-        <label for="placeholder">placeholder</label>
-        <input type="text" name="placeholder">
+        <label for="placeholder">Edition</label>
+        <input type="text" name="edition" [(ngModel)]="edition">
+      </div>
+  
+      <div>
+        <label for="placeholder">City</label>
+        <input type="text" name="city" [(ngModel)]="city">
       </div>
     </div>
 

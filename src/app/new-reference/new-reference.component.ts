@@ -10,13 +10,18 @@ import { v1 } from 'uuid';
 })
 
 export class NewReferenceComponent {
-  private author: string;
-  private publication: string;
-  private publisher: string;
-  private year: string;
-  private url: string;
-  private title: string;
-  private id: string;
+  private accessed: Date;
+  private author: string = '';
+  private city: string = '';
+  private edition: string = '';
+  private id: string = '';
+  private online: boolean = false;
+  private pages: string = '';
+  private publication: string = '';
+  private publisher: string = '';
+  private title: string = '';
+  private url: string = '';
+  private year: string = '';
 
   constructor(private localDb: LocalDB) {}
 
@@ -28,25 +33,35 @@ export class NewReferenceComponent {
 
   private createFormObject(): IForm {
     const form = {
+      accessed: new Date(),
       author: this.author,
+      city: this.city,
+      edition: this.edition,
+      id: v1(),
+      online: this.online,
+      pages: this.pages,
       publication: this.publication,
       publisher: this.publisher,
-      year: this.year,
-      url: this.url,
       title: this.title,
-      id: v1()
+      url: this.url,
+      year: this.year
     };
     return form;
   }
 
   private clearData(): void {
-    this.title = '';
+    this.accessed = null;
     this.author = '';
+    this.city = '';
+    this.edition = '';
+    this.id = '';
+    this.online = false;
+    this.pages = '';
     this.publication = '';
     this.publisher = '';
-    this.year = '';
+    this.title = '';
     this.url = '';
-    this.id = '';
+    this.year = '';
   }
 
 }
