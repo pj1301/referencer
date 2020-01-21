@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Edit Reference</h2>
+<mat-dialog-content>
+  <mat-form-field>
+    <input type="text" matInput [(ngModel)]="data.author" placeholder="Author" value="{{data.author}}">
+  </mat-form-field>
+  <mat-form-field>
+    <!-- I'm not sure why value is written [value]="variable" and not value="{{variable}}" -->
+    <!-- <input type="text" matInput [(ngModel)]="data.publication" placeholder="Publication" [value]="data.publication"> -->
+    <input type="text" matInput [(ngModel)]="data.publication" placeholder="Publication" value="{{data.publication}}">
+  </mat-form-field>
+  <mat-form-field>
+    <input type="text" matInput [(ngModel)]="data.publisher" placeholder="Publisher" value="{{data.publisher}}">
+  </mat-form-field>
+  <mat-form-field>
+    <input type="text" matInput [(ngModel)]="data.year" placeholder="Year" value="{{data.year}}">
+  </mat-form-field>
+  <mat-form-field>
+    <input type="text" matInput [(ngModel)]="data.url" placeholder="URL" value="{{data.url}}">
+  </mat-form-field>
+  <mat-form-field>
+    <input type="text" matInput [(ngModel)]="data.title" placeholder="Title" value="{{data.title}}">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close [mat-dialog-close]="data">Save Changes</button>
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
