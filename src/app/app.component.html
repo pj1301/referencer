@@ -1,8 +1,12 @@
-<div class="navbar">
-  <a routerLink="/">Home</a>
-  <a routerLink="/library">Library</a>
-</div>
+<div class="app-wrapper">
 
-<div class="page-wrap">
-  <router-outlet></router-outlet>
+  <div class="navbar">
+    <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a routerLink="/library" routerLinkActive="active-link">Library</a>
+  </div>
+  
+  <div class="page-wrap">
+    <router-outlet></router-outlet>
+  </div>
+
 </div>
