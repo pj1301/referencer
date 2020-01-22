@@ -12,6 +12,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { EditModalComponent } from './library/edit-modal/edit-modal.component';
 import { ExportModalComponent } from './library/export-modal/export-modal.component';
+import { WarningModalComponent } from './warning-modal/warning-modal.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,10 @@ import { ExportModalComponent } from './library/export-modal/export-modal.compon
     NewReferenceComponent,
     LibraryComponent,
     EditModalComponent,
-    ExportModalComponent
+    ExportModalComponent,
+    WarningModalComponent
   ],
-  entryComponents: [EditModalComponent, ExportModalComponent],
+  entryComponents: [EditModalComponent, ExportModalComponent, WarningModalComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

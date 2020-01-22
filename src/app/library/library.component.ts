@@ -4,6 +4,7 @@ import { EditModalComponent } from './edit-modal/edit-modal.component';
 import { LocalDB } from '../services/local-db.service';
 import { IForm } from '../interfaces/form';
 import { ExportModalComponent } from './export-modal/export-modal.component';
+import { WarningModalComponent } from '../warning-modal/warning-modal.component';
 
 @Component({
   selector: 'app-library',
@@ -27,7 +28,7 @@ export class LibraryComponent implements OnInit {
     this.localDb.getAllRefs().then(data => this.references = data);
   }
 
-  private editReference() {
+  private editReference(): void {
     if (this.selectedReferences.length === 0) return this.notify('No entries selected');
     const ref = this.references.find(obj => obj.id === this.selectedReferences[0]);
     const dialogRef = this.dialog.open(EditModalComponent, {
@@ -42,7 +43,7 @@ export class LibraryComponent implements OnInit {
     });
   }
 
-  private exportReferences() {
+  private exportReferences(): void {
     this.referenceCollection = [];
     if (this.selectedReferences.length === 0) return this.notify('No references are selected')
     this.selectedReferences.forEach(refId => {
@@ -56,9 +57,12 @@ export class LibraryComponent implements OnInit {
     })
   }
 
-  private deleteReferences() {
+  private deleteReferences(): any {
     if (this.selectedReferences.length === 0) return this.notify('No references are selected')
-    this.localDb.deleteData(this.selectedReferences);
+    const dialogRef = this.dialog.open(WarningModalComponent);
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) return this.localDb.deleteData(this.selectedReferences);
+    });
   }
 
   private displayInfo(id: string): void {
@@ -70,6 +74,10 @@ export class LibraryComponent implements OnInit {
       return this.selectedReferences = this.selectedReferences.filter(ref => ref !== id);
     }
     this.selectedReferences.push(id);
+  }
+
+  private isChecked(id: string): boolean {
+    return this.selectedReferences.includes(id) ? true : false;
   }
 
   private findRefInfo(id: string) {
@@ -86,7 +94,12 @@ export class LibraryComponent implements OnInit {
     return ref.join('');
   }
 
-  private notify(message) {
+  private allReferences() {
+    if (this.selectedReferences.length > 0) return this.selectedReferences = [];
+    return this.selectedReferences = this.references.map(ref => ref.id);
+  }
+
+  private notify(message): void {
     this.snack.open(message, 'close', { duration: 2000 });
   }
 

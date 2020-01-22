@@ -21,6 +21,7 @@
   <button class="normal" mat-raised-button (click)="editReference()">Edit</button>
   <button class="normal" mat-raised-button (click)="exportReferences()">Export</button>
   <button class="danger" mat-raised-button (click)="deleteReferences()">Delete</button>
+  <button class="primary" mat-raised-button (click)="allReferences()">{{selectedReferences.length > 0 ? 'Deselect all' : 'Select all'}}</button>
 </div>
 
 <div class="list-panel">
@@ -31,7 +32,7 @@
       <p>Publication: {{ref.publication}}</p>
     </div>
     <div class="check-box">
-      <mat-checkbox (change)="addToList(ref.id)"></mat-checkbox>
+      <mat-checkbox (change)="addToList(ref.id)" [checked]="isChecked(ref.id)"></mat-checkbox>
     </div>
   </div>
 </div>
