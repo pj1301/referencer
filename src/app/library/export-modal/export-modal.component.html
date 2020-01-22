@@ -1,7 +1,11 @@
 <h2>This is the export collection modal</h2>
 <mat-dialog-content>
-  <p *ngFor="let ref of data">{{ref}}</p>
+  <!-- <p *ngFor="let ref of data">{{ref}}</p> -->
+  <mat-form-field class="wide">
+    <!-- putting {{text}} into the textarea causes an error, better to place in a bound value -->
+    <textarea name="references" id="ref-area" [value]="text" matInput rows="50"></textarea>
+  </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions align="center">
-  <button mat-raised-button mat-dialog-close>Copy</button>
+  <button mat-raised-button (click)="copyText()">Copy</button>
 </mat-dialog-actions>
