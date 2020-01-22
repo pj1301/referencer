@@ -10,16 +10,18 @@ import { NewReferenceComponent } from './new-reference/new-reference.component';
 import { LibraryComponent } from './library/library.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { LibraryModalComponent } from './library/modal/library-modal.component';
+import { EditModalComponent } from './library/edit-modal/edit-modal.component';
+import { ExportModalComponent } from './library/export-modal/export-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewReferenceComponent,
     LibraryComponent,
-    LibraryModalComponent
+    EditModalComponent,
+    ExportModalComponent
   ],
-  entryComponents: [LibraryModalComponent],
+  entryComponents: [EditModalComponent, ExportModalComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

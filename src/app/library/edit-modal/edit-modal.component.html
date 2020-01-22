@@ -5,7 +5,6 @@
   </mat-form-field>
   <mat-form-field>
     <!-- I'm not sure why value is written [value]="variable" and not value="{{variable}}" -->
-    <!-- <input type="text" matInput [(ngModel)]="data.publication" placeholder="Publication" [value]="data.publication"> -->
     <input type="text" matInput [(ngModel)]="data.publication" placeholder="Publication" value="{{data.publication}}">
   </mat-form-field>
   <mat-form-field>
@@ -21,7 +20,7 @@
     <input type="text" matInput [(ngModel)]="data.title" placeholder="Title" value="{{data.title}}">
   </mat-form-field>
 </mat-dialog-content>
-<mat-dialog-actions>
+<mat-dialog-actions align="center">
   <button mat-raised-button mat-dialog-close [mat-dialog-close]="data">Save Changes</button>
   <button mat-raised-button mat-dialog-close>Cancel</button>
 </mat-dialog-actions>
