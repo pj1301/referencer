@@ -6,20 +6,28 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 import { NewReferenceComponent } from './new-reference/new-reference.component';
 import { LibraryComponent } from './library/library.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { LibraryModalComponent } from './library/modal/library-modal.component';
+import { EditModalComponent } from './library/edit-modal/edit-modal.component';
+import { ExportModalComponent } from './library/export-modal/export-modal.component';
+import { WarningModalComponent } from './warning-modal/warning-modal.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     NewReferenceComponent,
     LibraryComponent,
-    LibraryModalComponent
+    EditModalComponent,
+    ExportModalComponent,
+    WarningModalComponent,
+    SettingsComponent
   ],
-  entryComponents: [LibraryModalComponent],
+  entryComponents: [EditModalComponent, ExportModalComponent, WarningModalComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
