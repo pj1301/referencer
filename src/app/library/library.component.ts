@@ -61,7 +61,10 @@ export class LibraryComponent implements OnInit {
     if (this.selectedReferences.length === 0) return this.notify('No references are selected')
     const dialogRef = this.dialog.open(WarningModalComponent);
     dialogRef.afterClosed().subscribe(res => {
-      if (res) return this.localDb.deleteData(this.selectedReferences);
+      if (res) {
+        this.references = this.references.filter(ref => !this.selectedReferences.includes(ref.id));
+        this.localDb.deleteData(this.selectedReferences)
+      };
     });
   }
 
