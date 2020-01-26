@@ -18,7 +18,7 @@
 </div>
 
 <div class="btn-panel">
-  <button class="normal" mat-raised-button (click)="editReference()">Edit</button>
+  <button class="normal" mat-raised-button (click)="newOrEdit()">{{selectedReferences.length > 0 ? 'Edit' : 'New'}}</button>
   <button class="normal" mat-raised-button (click)="exportReferences()">Export</button>
   <button class="danger" mat-raised-button (click)="deleteReferences()">Delete</button>
   <button class="primary" mat-raised-button (click)="allReferences()">{{selectedReferences.length > 0 ? 'Deselect all' : 'Select all'}}</button>

@@ -1,26 +1,43 @@
 <h2 mat-dialog-title>Edit Reference</h2>
 <mat-dialog-content>
   <mat-form-field>
-    <input type="text" matInput [(ngModel)]="data.author" placeholder="Author" value="{{data.author}}">
+    <input type="text" matInput [(ngModel)]="data.content.title" placeholder="Title" value="{{data.content.title}}">
   </mat-form-field>
   <mat-form-field>
-    <!-- I'm not sure why value is written [value]="variable" and not value="{{variable}}" -->
-    <input type="text" matInput [(ngModel)]="data.publication" placeholder="Publication" value="{{data.publication}}">
+    <input type="text" matInput [(ngModel)]="data.content.author" placeholder="Author(s)" value="{{data.content.author}}">
   </mat-form-field>
   <mat-form-field>
-    <input type="text" matInput [(ngModel)]="data.publisher" placeholder="Publisher" value="{{data.publisher}}">
+    <!-- Can also be written [value]="variable" and not value="{{variable}}" -->
+    <input type="text" matInput [(ngModel)]="data.content.publication" placeholder="Publication" value="{{data.content/publication}}">
   </mat-form-field>
   <mat-form-field>
-    <input type="text" matInput [(ngModel)]="data.year" placeholder="Year" value="{{data.year}}">
+    <input type="text" matInput [(ngModel)]="data.content.publisher" placeholder="Publisher" value="{{data.content.publisher}}">
   </mat-form-field>
+  <div class="row">
+    <mat-form-field>
+      <input type="text" matInput [(ngModel)]="data.content.year" placeholder="Year" value="{{data.content.year}}">
+    </mat-form-field>
+    <div class="checkbox-wrap">
+      <label for="online">Online</label>
+      <mat-checkbox [(ngModel)]="data.content.online" name="online" value="{{data.content.online}}"></mat-checkbox>
+    </div>
+  </div>
   <mat-form-field>
-    <input type="text" matInput [(ngModel)]="data.url" placeholder="URL" value="{{data.url}}">
+    <input type="text" matInput [(ngModel)]="data.content.url" placeholder="URL" value="{{data.content.url}}">
   </mat-form-field>
-  <mat-form-field>
-    <input type="text" matInput [(ngModel)]="data.title" placeholder="Title" value="{{data.title}}">
-  </mat-form-field>
+  <div class="row">
+    <mat-form-field>
+      <input type="text" matInput [(ngModel)]="data.content.pages" placeholder="Pages" value="{{data.content.pages}}">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput [(ngModel)]="data.content.edition" placeholder="Edition" value="{{data.content.edition}}">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput [(ngModel)]="data.content.city" placeholder="City" value="{{data.content.city}}">
+    </mat-form-field>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions align="center">
-  <button mat-raised-button mat-dialog-close [mat-dialog-close]="data">Save Changes</button>
+  <button mat-raised-button mat-dialog-close [mat-dialog-close]="data.content">Save Changes</button>
   <button mat-raised-button mat-dialog-close>Cancel</button>
 </mat-dialog-actions>

@@ -6,3 +6,21 @@ mat-dialog-content {
 .mat-dialog-actions {
   margin-bottom: 0;
 }
+
+.checkbox-wrap {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  align-items: center;
+  
+  label {
+    margin-right: 20px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IForm } from '../interfaces/form';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 
@@ -24,12 +25,15 @@ export class LocalDB {
     };
   }
 
-  public addData(data: IForm): void {
-    const tx = this.db.transaction(this.store, 'readwrite').objectStore(this.store);
-    const request = tx.add(data);
-    request.onsuccess = () => {
-      console.log(request);
-    };
+  public addData(data: IForm): Observable<any> {
+    const observable = new Observable((observer) => {
+      const tx = this.db.transaction(this.store, 'readwrite').objectStore(this.store);
+      const request = tx.add(data);
+      request.onsuccess = () => {
+        observer.next(request);
+      };
+    })
+    return observable;
   }
 
   public getAllRefs(): Promise<Array<IForm>> {

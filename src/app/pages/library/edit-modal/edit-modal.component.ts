@@ -12,6 +12,8 @@ export class EditModalComponent {
   constructor(
     public dialogRef: MatDialogRef<EditModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+  ) {
+    console.log(this.data);
+  }
 
 }

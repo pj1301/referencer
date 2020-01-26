@@ -5,6 +5,8 @@ import { LocalDB } from '../../services/local-db.service';
 import { IForm } from '../../interfaces/form';
 import { ExportModalComponent } from './export-modal/export-modal.component';
 import { WarningModalComponent } from '../warning-modal/warning-modal.component';
+import { v1 } from 'uuid';
+
 
 @Component({
   selector: 'app-library',
@@ -28,12 +30,44 @@ export class LibraryComponent implements OnInit {
     this.localDb.getAllRefs().then(data => this.references = data);
   }
 
+  private newOrEdit(): void {
+    if (this.selectedReferences.length === 0) return this.newReference();
+    this.editReference();
+  }
+
+  private newReference(): void {
+    const ref = { 
+      author: '',
+      city: '',
+      edition: '',
+      id: v1(),
+      online: false,
+      pages: '',
+      publication: '',
+      publisher: '',
+      title: '',
+      url: '',
+      year: '',
+     }
+    const dialogRef = this.dialog.open(EditModalComponent, {
+      width: '70vw',
+      data: { content: ref, type: 'new' }
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      const data = {...res, accessed: new Date()}
+      this.localDb.addData(data).subscribe(res => {
+        if (res.error) return this.notify('There was an error');
+        this.references.push(data);
+        this.notify('New reference added');
+      });
+    }); 
+  }
+
   private editReference(): void {
-    if (this.selectedReferences.length === 0) return this.notify('No entries selected');
     const ref = this.references.find(obj => obj.id === this.selectedReferences[0]);
     const dialogRef = this.dialog.open(EditModalComponent, {
       width: '70vw',
-      data: ref
+      data: { content: ref, type: 'edit' }
     });
     dialogRef.afterClosed().subscribe(data => {
       if (!data) return;
