@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { EditModalComponent } from './edit-modal/edit-modal.component';
-import { LocalDB } from '../services/local-db.service';
-import { IForm } from '../interfaces/form';
+import { LocalDB } from '../../services/local-db.service';
+import { IForm } from '../../interfaces/form';
 import { ExportModalComponent } from './export-modal/export-modal.component';
 import { WarningModalComponent } from '../warning-modal/warning-modal.component';
 

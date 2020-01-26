@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { NewReferenceComponent } from './new-reference/new-reference.component';
-import { LibraryComponent } from './library/library.component';
-import { SettingsComponent } from './settings/settings.component';
+import { HomeComponent } from './pages/home/home.component';
+import { NewReferenceComponent } from './pages/new-reference/new-reference.component';
+import { LibraryComponent } from './pages/library/library.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 
 const routes: Routes = [

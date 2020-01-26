@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LocalDB } from '../services/local-db.service';
-import { IForm } from '../interfaces/form';
+import { LocalDB } from '../../services/local-db.service';
+import { IForm } from '../../interfaces/form';
 import { v1 } from 'uuid';
 
 @Component({
