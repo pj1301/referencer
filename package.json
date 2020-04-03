@@ -544,7 +544,7 @@
         "karma-jasmine-html-reporter": "1.5.1",
         "karma-source-map-support": "1.4.0",
         "killable": "1.0.1",
-        "kind-of": "6.0.2",
+        "kind-of": "6.0.3",
         "lcid": "2.0.0",
         "less": "3.9.0",
         "less-loader": "5.0.0",
