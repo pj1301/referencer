@@ -613,7 +613,7 @@
         "npm-package-arg": "6.1.0",
         "npm-packlist": "1.4.7",
         "npm-pick-manifest": "3.0.2",
-        "npm-registry-fetch": "4.0.2",
+        "npm-registry-fetch": "8.1.1",
         "npm-run-path": "2.0.2",
         "null-check": "1.0.0",
         "num2fraction": "1.2.2",
