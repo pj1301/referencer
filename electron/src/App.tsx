@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 
 const App = () => {
     return(
@@ -7,4 +6,4 @@ const App = () => {
     )
 }
 
-render(<App/>, document.querySelector('div#root'));
+export default App;

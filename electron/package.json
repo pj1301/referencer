@@ -5,19 +5,30 @@
 	"main": "api/main.ts",
 	"scripts": {
 		"build:electron": "webpack --config-name api",
-        "start:electron": "electron ./dist/main.js"
+		"start:electron": "electron ./dist/electron/main.js",
+		"build:react": "webpack --config-name ui",
+		"start:react": "webpack serve ./dist/renderer"
 	},
 	"author": "pj1301",
 	"license": "ISC",
 	"devDependencies": {
+		"@babel/core": "^7.13.16",
+		"@babel/plugin-transform-runtime": "^7.13.15",
+		"@babel/preset-env": "^7.13.15",
+		"@babel/preset-react": "^7.13.13",
+		"@babel/preset-typescript": "^7.13.0",
+		"@babel/runtime": "^7.13.17",
 		"@types/node": "^15.0.1",
 		"@types/react": "^17.0.4",
 		"@types/react-dom": "^17.0.3",
+		"babel-loader": "^8.2.2",
 		"electron": "^12.0.5",
+		"html-webpack-plugin": "^5.3.1",
 		"ts-loader": "^9.1.1",
 		"typescript": "^4.2.4",
 		"webpack": "^5.36.1",
-		"webpack-cli": "^4.6.0"
+		"webpack-cli": "^4.6.0",
+		"webpack-dev-server": "^3.11.2"
 	},
 	"dependencies": {
 		"react": "^17.0.2",

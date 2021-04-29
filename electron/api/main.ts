@@ -18,7 +18,7 @@ class Main {
 		if (mainWindow) {
 			newWindow = new BrowserWindow(newWindowOptions);
 			this.session = newWindow.webContents.session;
-			newWindow.loadFile(`${__dirname}/../index.html`);
+			newWindow.loadURL('http://localhost:3000');
 			this.mainWindow = newWindow;
 		} else {
 			newWindow = new BrowserWindow(newWindowOptions);

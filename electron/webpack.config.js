@@ -1,13 +1,13 @@
 
-const path = require('path')
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = [
     {
         name: 'api',
-        mode: 'production',
+        mode: process.env.NODE_ENV || 'development',
         entry: `${__dirname}/api/main.ts`,
         output: {
-            path: `${__dirname}/dist`,
+            path: `${__dirname}/dist/electron`,
             filename: 'main.js'
         },
         resolve: {
@@ -22,28 +22,42 @@ module.exports = [
                 }
             ]
         },
+        devtool: 'source-map',
         target: 'electron-main'
     },
     {
         name: 'ui',
-        mode: 'production',
-        entry: `${__dirname}/src/App.tsx`,
+        mode: process.env.NODE_ENV || 'development',
+        entry: `${__dirname}/src/index.tsx`,
         output: {
-            path: `${__dirname}/dist`,
-            filename: 'App.js'
+            path: `${__dirname}/dist/renderer`,
+            filename: 'index.js'
         },
         resolve: {
-            extensions: ['.tsx', '.jsx']
+            extensions: ['.tsx', '.jsx', '.js']
         },
         module: {
             rules: [
                 {
-                    test: /\.tsx?/,
-                    use: 'ts-loader',
+                    test: /\.tsx?$/,
                     exclude: /node_modules/,
+                    use: 'ts-loader'
+                },
+                {
+                    test: /\.(js|jsx)$/,
+                    exclude: /node_modules/,
+                    use: 'babel-loader',
                 }
             ]
         },
-        target: 'electron-renderer'
+        devtool: 'source-map',
+        devServer: {
+            contentBase: `${__dirname}/dist/renderer`,
+            compress: true,
+            port: 3000
+        },
+        plugins: [
+            new HtmlWebPackPlugin({ template: './index.html' })
+        ]
     }
 ]
