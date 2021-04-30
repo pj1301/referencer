@@ -17,8 +17,8 @@ module.exports = [
             rules: [
                 {
                     test: /\.ts?/,
-                    use: 'ts-loader',
                     exclude: /node_modules/,
+                    use: 'ts-loader'
                 }
             ]
         },
@@ -28,13 +28,13 @@ module.exports = [
     {
         name: 'ui',
         mode: process.env.NODE_ENV || 'development',
-        entry: `${__dirname}/src/index.tsx`,
+        entry: `${__dirname}/src/App.tsx`,
         output: {
             path: `${__dirname}/dist/renderer`,
             filename: 'index.js'
         },
         resolve: {
-            extensions: ['.tsx', '.jsx', '.js']
+            extensions: ['.tsx', '.jsx', '.js', '.css', '.scss' ]
         },
         module: {
             rules: [
@@ -46,7 +46,11 @@ module.exports = [
                 {
                     test: /\.(js|jsx)$/,
                     exclude: /node_modules/,
-                    use: 'babel-loader',
+                    use: 'babel-loader'
+                },
+                {
+                    test: /\.s[ac]ss$/i,
+                    use: ['style-loader', 'css-loader', 'sass-loader']
                 }
             ]
         },

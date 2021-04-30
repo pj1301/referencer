@@ -2,7 +2,12 @@ import { app, App, BrowserWindow, Session, BrowserWindowConstructorOptions } fro
 
 class Main {
 	private app: App;
-	private defaultWindowOpt: BrowserWindowConstructorOptions = { width: 800, height: 600 };
+	private defaultWindowOpt: BrowserWindowConstructorOptions = {
+        width: 800,
+        height: 600,
+        minWidth: 400,
+        minHeight: 350
+    };
 	private mainWindow!: BrowserWindow;
 	private secondaryWindows!: Array<BrowserWindow>;
 	private session!: Session;

@@ -51,7 +51,12 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var electron_1 = __webpack_require__(/*! electron */ "electron");
 var Main = /** @class */ (function () {
     function Main() {
-        this.defaultWindowOpt = { width: 800, height: 600 };
+        this.defaultWindowOpt = {
+            width: 800,
+            height: 600,
+            minWidth: 400,
+            minHeight: 350
+        };
         this.app = electron_1.app;
         this.setListeners();
     }

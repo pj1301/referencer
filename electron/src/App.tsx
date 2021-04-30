@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { render } from 'react-dom';
+import './assets/stylesheets/styles.scss';
 
 const App = () => {
+
+    useEffect(() => {
+        setTheme();
+    }, []);
+
+    function setTheme() {
+        document.querySelector('#⌘')?.classList.add('dark');
+    }
+
     return(
-        <h1>Hello world!!!</h1>
+        <>
+            <h1>Hello world!!!</h1>
+            <p>A traveller came...</p>
+        </>
     )
 }
 
-export default App;
+render(<App />, document.querySelector('div#⌘'));
