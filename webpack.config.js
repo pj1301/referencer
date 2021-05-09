@@ -56,9 +56,18 @@ module.exports = [
         },
         devtool: 'source-map',
         devServer: {
+            host: 'localhost',
             contentBase: `${__dirname}/dist/renderer`,
             compress: true,
-            port: 3000
+            port: 3000,
+            liveReload: true,
+            hot: true,
+            inline: true,
+            historyApiFallback: true
+        },
+        watchOptions: {
+            ignored: /node_modules/,
+            poll: true
         },
         plugins: [
             new HtmlWebPackPlugin({ template: './index.html' })

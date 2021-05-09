@@ -4,11 +4,11 @@
 	"description": "Referencer App built with Electron",
 	"main": "api/main.ts",
 	"scripts": {
-		"dev:electron": "export $(cat config/dev.env | xargs) && webpack --watch --config-name api",
+		"dev:electron": "concurrently \"export $(cat config/dev.env | xargs)\" \"webpack --watch --config-name api\" \"electron ./dist/electron/main.js\"",
 		"build:electron": "export $(cat config/prod.env | xargs) && webpack --config-name api",
 		"start-inspect:electron": "export $(cat config/dev.env | xargs) && electron --inspect=5000 ./dist/electron/main.js",
 		"start:electron": "electron ./dist/electron/main.js",
-		"dev:react": "export $(cat config/dev.env | xargs) && webpack --watch --config-name ui",
+		"dev:react": "concurrently \"export $(cat config/dev.env | xargs)\" \"webpack --watch --config-name ui\" \"webpack serve --config-name ui --progress\"",
 		"build:react": "export $(cat config/prod.env | xargs) && webpack --config-name ui",
 		"start:react": "webpack serve ./dist/renderer"
 	},
@@ -24,12 +24,14 @@
 		"@types/node": "^15.0.1",
 		"@types/react": "^17.0.4",
 		"@types/react-dom": "^17.0.3",
+		"@types/react-router-dom": "^5.1.7",
 		"babel-loader": "^8.2.2",
 		"css-loader": "^5.2.4",
 		"electron": "^12.0.5",
 		"html-webpack-plugin": "^5.3.1",
 		"node-sass": "^5.0.0",
 		"nodemon": "^2.0.7",
+		"nodemon-webpack-plugin": "^4.5.2",
 		"sass-loader": "^11.0.1",
 		"style-loader": "^2.0.0",
 		"ts-loader": "^9.1.1",
@@ -39,7 +41,9 @@
 		"webpack-dev-server": "^3.11.2"
 	},
 	"dependencies": {
+		"concurrently": "^6.1.0",
 		"react": "^17.0.2",
-		"react-dom": "^17.0.2"
+		"react-dom": "^17.0.2",
+		"react-router-dom": "^5.2.0"
 	}
 }

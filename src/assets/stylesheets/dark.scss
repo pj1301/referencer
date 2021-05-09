@@ -1,11 +1,58 @@
+$core: #363333;
+$titles: #577da1;
+$secondary-text: rgb(245,245,245);
+$primary-text: #777777;
+$danger: rgb(148, 5, 5);
+
 #⌘.dark {
     background: #363333;
 
-    h1 {
-        color: #577da1;
+    #navigation-panel {
+        .nav-option {
+            border-bottom: 2px solid $titles;
+            margin: 0 5px;
+            padding: 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            color: $secondary-text;
+            cursor: pointer;
+        }
+    }
+
+    h1, h2, h3, h4 {
+        color: $titles;
     }
 
     p {
-        color: whitesmoke;
+        color: $secondary-text;
+    }
+
+
+    div.form-input {
+        color: $primary-text;
+
+        i {
+            color: $primary-text;
+        }
+    }
+
+    button.btn {
+        
+        &.btn-danger {
+            background: $danger;
+            color: $secondary-text;
+        }
+
+        &.btn-primary {
+            background: $titles;
+            color: $core;
+        }
+
+        &.btn-secondary {
+            background: $primary-text;
+            color: $core;
+        }
     }
 }
