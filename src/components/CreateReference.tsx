@@ -4,7 +4,7 @@ import Input from './elements/Input';
 import InputArea from './elements/InputArea';
 
 const CreateReference = (): JSX.Element => {
-    const { state, dispatch } = useContext(ReferencesContext);
+    // const { state, dispatch } = useContext(ReferencesContext);
     const [title, setTitle] = useState('');
     const [url, setUrl] = useState('');
     const [authors, setAuthors] = useState('');
