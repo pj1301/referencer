@@ -1,5 +1,6 @@
-export interface iReference {
-    id: string;
+import { iBaseRecordProperties } from "./base-record.interface";
+
+export interface iReference extends iBaseRecordProperties {
 	title: string;
 	url: string;
 	authors: string;

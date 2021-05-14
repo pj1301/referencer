@@ -29,4 +29,4 @@ rules:
     - always
   no-empty-function:
     - allow:
-      - "constructors"
+      - 'constructors'
