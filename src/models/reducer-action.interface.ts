@@ -1,4 +1,4 @@
-export interface ReducerDispatch<T> {
+export interface iReducerDispatch<T> {
 	type: string,
 	payload: Array<T> | T | string
 }
