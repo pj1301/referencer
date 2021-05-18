@@ -1,9 +1,9 @@
-import { ReducerDispatch } from '../../models/reducer-action.interface';
-import { Reference } from '../../models/reference.interface';
-import { NEW_REFERENCE } from './types';
+import { iReducerDispatch } from '../../models/reducer-action.interface';
+import { iReference } from '../../models/reference.interface';
+import { iDispatchActionTypes } from '../types.enum';
 
-export function createNewReference(reference: Reference, dispatch: any): void {
-	dispatch({ type: NEW_REFERENCE, payload: reference });
+export function createNewReference(reference: iReference, dispatch: any): void {
+	dispatch({ type: iDispatchActionTypes.CREATE_ONE, payload: reference });
 }
 
 export function getReferences(dispatch: any): void {
@@ -12,4 +12,4 @@ export function getReferences(dispatch: any): void {
 
 export function deleteReference(id: string, dispatch: any): void {}
 
-export function updateReference(reference: Reference, dispatch: any): void {}
+export function updateReference(reference: iReference, dispatch: any): void {}

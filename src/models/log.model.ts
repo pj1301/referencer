@@ -3,17 +3,20 @@ import { iBaseRecordProperties } from "./base-record.interface";
 export interface iLog extends iBaseRecordProperties {
 	action: string;
 	resource: string;
+	type: string;
 }
 
 export class Log<T extends iBaseRecordProperties> implements iLog {
 	public id: string;
 	public action: string;
+	public type: string;
 	public resource: string;
 	public timestamp: string;
 
-	constructor(action: string, resource: Array<T>|T|string) {
+	constructor(action: string, type: string, resource: Array<T>|T|string) {
 		this.id = '';
 		this.action = action;
+		this.type = type;
 		this.resource = this.calculateResource(resource),
 		this.timestamp = new Date().toISOString();
 	}
