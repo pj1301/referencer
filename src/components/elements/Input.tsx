@@ -1,5 +1,5 @@
 import React, { KeyboardEvent, Dispatch, ChangeEvent } from 'react';
-import Rif from '../conditional-renderer/rif'; 
+import Rif from '../conditional-renderer/Rif'; 
 
 export default (props: any): JSX.Element => {
 

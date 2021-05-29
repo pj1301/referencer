@@ -1,12 +1,11 @@
 import React, { createContext, Dispatch, useReducer } from 'react';
 import { iReducerDispatch } from '../../models/reducer-action.interface';
 import { iReference } from '../../models/reference.interface';
-import { iStore } from '../../models/store.interfaces';
 import { initialState, reducer } from './reducer';
 
 const ReferenceStore = createContext<[Array<iReference>, Dispatch<iReducerDispatch<iReference>>]>(null!);
 
-const ReferencesProvider = ({ children }: JSX.ElementChildrenAttribute) => {
+const ReferencesProvider = ({ children }: JSX.ElementChildrenAttribute): JSX.Element => {
     const [referenceStore, referenceDispatch] = useReducer(reducer, initialState);
     
     return(

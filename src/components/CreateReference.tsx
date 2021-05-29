@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react'; 
-import { ReferencesContext } from '../context/references/context';
+import { ReferenceStore } from '../context/references/context';
+import { iDispatchActionTypes } from '../context/types.enum';
+import { iReference } from '../models/reference.interface';
 import Input from './elements/Input';
 import InputArea from './elements/InputArea';
 
 const CreateReference = (): JSX.Element => {
-    // const { state, dispatch } = useContext(ReferencesContext);
+    const [refState, refDispatch] = useContext(ReferenceStore);
     const [title, setTitle] = useState('');
     const [url, setUrl] = useState('');
     const [authors, setAuthors] = useState('');
@@ -19,7 +21,7 @@ const CreateReference = (): JSX.Element => {
         const dateNow = new Date().toISOString();
         setCreated(dateNow);
         setLastAccessed(dateNow);
-        console.log(formatDataObject());
+        refDispatch({ type: iDispatchActionTypes.CREATE_ONE, payload: formatDataObject() as iReference });
     }
 
     function clearData(): void {

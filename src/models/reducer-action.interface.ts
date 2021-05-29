@@ -1,4 +1,6 @@
+import { iDispatchActionTypes } from '../context/types.enum';
+
 export interface iReducerDispatch<T> {
-	type: string,
+	type: iDispatchActionTypes,
 	payload: Array<T> | T | string
 }

@@ -34476,11 +34476,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var context_1 = __webpack_require__(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../context/references/context'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+var context_1 = __webpack_require__(/*! ../context/references/context */ "./src/context/references/context.tsx");
+var types_enum_1 = __webpack_require__(/*! ../context/types.enum */ "./src/context/types.enum.ts");
 var Input_1 = __importDefault(__webpack_require__(/*! ./elements/Input */ "./src/components/elements/Input.tsx"));
 var InputArea_1 = __importDefault(__webpack_require__(/*! ./elements/InputArea */ "./src/components/elements/InputArea.tsx"));
 var CreateReference = function () {
-    var _a = react_1.useContext(context_1.ReferencesContext), state = _a.state, dispatch = _a.dispatch;
+    var _a = react_1.useContext(context_1.ReferenceStore), refState = _a[0], refDispatch = _a[1];
     var _b = react_1.useState(''), title = _b[0], setTitle = _b[1];
     var _c = react_1.useState(''), url = _c[0], setUrl = _c[1];
     var _d = react_1.useState(''), authors = _d[0], setAuthors = _d[1];
@@ -34494,7 +34495,7 @@ var CreateReference = function () {
         var dateNow = new Date().toISOString();
         setCreated(dateNow);
         setLastAccessed(dateNow);
-        console.log(formatDataObject());
+        refDispatch({ type: types_enum_1.iDispatchActionTypes.CREATE_ONE, payload: formatDataObject() });
     }
     function clearData() {
         setTitle('');
@@ -34633,9 +34634,9 @@ exports.default = References;
 
 /***/ }),
 
-/***/ "./src/components/conditional-renderer/rif.tsx":
+/***/ "./src/components/conditional-renderer/Rif.tsx":
 /*!*****************************************************!*\
-  !*** ./src/components/conditional-renderer/rif.tsx ***!
+  !*** ./src/components/conditional-renderer/Rif.tsx ***!
   \*****************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -34662,11 +34663,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var rif_1 = __importDefault(__webpack_require__(/*! ../conditional-renderer/rif */ "./src/components/conditional-renderer/rif.tsx"));
+var Rif_1 = __importDefault(__webpack_require__(/*! ../conditional-renderer/Rif */ "./src/components/conditional-renderer/Rif.tsx"));
 exports.default = (function (props) {
     return (react_1.default.createElement("div", { className: "form-input" },
         react_1.default.createElement("input", { type: props.type, onChange: function (e) { return props.changeFn(e.target.value); }, placeholder: props.placeholder, value: props.value }),
-        react_1.default.createElement(rif_1.default, { condition: props.clear },
+        react_1.default.createElement(Rif_1.default, { condition: props.clear },
             react_1.default.createElement("i", null, "clear"))));
 });
 
@@ -34691,6 +34692,114 @@ exports.default = (function (props) {
         react_1.default.createElement("textarea", { onChange: function (e) { return props.changeFn(e.target.value); }, placeholder: props.placeholder, value: props.value }),
         react_1.default.createElement("i", null, "clear")));
 });
+
+
+/***/ }),
+
+/***/ "./src/context/references/context.tsx":
+/*!********************************************!*\
+  !*** ./src/context/references/context.tsx ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ReferencesProvider = exports.ReferenceStore = void 0;
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var reducer_1 = __webpack_require__(/*! ./reducer */ "./src/context/references/reducer.ts");
+var ReferenceStore = react_1.createContext(null);
+exports.ReferenceStore = ReferenceStore;
+var ReferencesProvider = function (_a) {
+    var children = _a.children;
+    var _b = react_1.useReducer(reducer_1.reducer, reducer_1.initialState), referenceStore = _b[0], referenceDispatch = _b[1];
+    return (react_1.default.createElement(ReferenceStore.Provider, { value: [referenceStore, referenceDispatch] }, children));
+};
+exports.ReferencesProvider = ReferencesProvider;
+
+
+/***/ }),
+
+/***/ "./src/context/references/reducer.ts":
+/*!*******************************************!*\
+  !*** ./src/context/references/reducer.ts ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.reducer = exports.initialState = void 0;
+var types_enum_1 = __webpack_require__(/*! ../types.enum */ "./src/context/types.enum.ts");
+var FETCH = types_enum_1.iDispatchActionTypes.FETCH, CREATE_ONE = types_enum_1.iDispatchActionTypes.CREATE_ONE, UPDATE_ONE = types_enum_1.iDispatchActionTypes.UPDATE_ONE, DELETE_ONE = types_enum_1.iDispatchActionTypes.DELETE_ONE;
+var initialState = [];
+exports.initialState = initialState;
+var reducer = function (state, action) {
+    if (state === void 0) { state = initialState; }
+    switch (action.type) {
+        case FETCH:
+            return __spreadArray(__spreadArray([], state), action.payload);
+        case CREATE_ONE:
+            return __spreadArray(__spreadArray([], state), [action.payload]);
+        case DELETE_ONE:
+            return __spreadArray([], state.filter(function (ref) { return ref.id !== action.payload; }));
+        case UPDATE_ONE:
+            return __spreadArray([], state.map(function (ref) {
+                var data = action.payload;
+                if (ref.id === data.id)
+                    return data;
+                return ref;
+            }));
+        default:
+            return state;
+    }
+};
+exports.reducer = reducer;
+
+
+/***/ }),
+
+/***/ "./src/context/types.enum.ts":
+/*!***********************************!*\
+  !*** ./src/context/types.enum.ts ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.iDispatchActionTypes = void 0;
+var iDispatchActionTypes;
+(function (iDispatchActionTypes) {
+    iDispatchActionTypes["CREATE_ONE"] = "create_one";
+    iDispatchActionTypes["UPDATE_ONE"] = "update_one";
+    iDispatchActionTypes["DELETE_ONE"] = "delete_one";
+    iDispatchActionTypes["FETCH"] = "fetch";
+})(iDispatchActionTypes = exports.iDispatchActionTypes || (exports.iDispatchActionTypes = {}));
 
 
 /***/ }),

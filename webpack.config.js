@@ -34,7 +34,7 @@ module.exports = [
             filename: 'index.js'
         },
         resolve: {
-            extensions: ['.tsx', '.jsx', '.js', '.css', '.scss' ]
+            extensions: ['.tsx', '.jsx', '.ts', '.js', '.css', '.scss' ]
         },
         module: {
             rules: [

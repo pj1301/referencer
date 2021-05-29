@@ -1,7 +1,5 @@
-import { iLog } from '../../models/log.model';
 import { iReducerDispatch } from '../../models/reducer-action.interface';
 import { iReference } from '../../models/reference.interface';
-import { iStore } from '../../models/store.interfaces';
 import { iDispatchActionTypes } from '../types.enum';
 
 const { FETCH, CREATE_ONE, UPDATE_ONE, DELETE_ONE } = iDispatchActionTypes;
