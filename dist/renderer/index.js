@@ -34654,8 +34654,7 @@ var References = function () {
     var _a = react_1.useState(''), search = _a[0], setSearch = _a[1];
     var _b = react_1.useContext(context_1.ReferenceStore), refs = _b[0], refDispatch = _b[1];
     function filterReferences(value) {
-        setSearch(value);
-        console.log({ value: value });
+        setSearch(value.toLowerCase());
     }
     function editReference(id) { console.log({ action: 'edit', id: id }); }
     function removeReference(id) {
@@ -34667,7 +34666,14 @@ var References = function () {
             react_1.default.createElement("h3", null, "Filters"),
             react_1.default.createElement("div", { className: "filters-wrap" },
                 react_1.default.createElement(Input_1.default, { type: "text", changeFn: filterReferences }))),
-        react_1.default.createElement("div", { className: "content-panel" }, refs.map(function (ref, i) {
+        react_1.default.createElement("div", { className: "content-panel" }, refs.filter(function (ref) {
+            if (ref.title.toLowerCase().includes(search))
+                return ref;
+            if (ref.authors.toLowerCase().includes(search))
+                return ref;
+            if (ref.notes.toLowerCase().includes(search))
+                return ref;
+        }).map(function (ref, i) {
             return react_1.default.createElement(Reference_1.default, { key: i, reference: ref, edit: editReference, remove: removeReference });
         }))));
 };
