@@ -8,4 +8,5 @@ export interface iReference extends iBaseRecordProperties {
 	publicationMonth: number;
 	publicationYear: number;
 	notes: string;
+	updated: string;
 }

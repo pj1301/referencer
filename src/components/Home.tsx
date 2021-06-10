@@ -1,6 +1,6 @@
-import React from 'react'; 
+import React, { FunctionComponent } from 'react'; 
 
-const Home = (): JSX.Element => {
+const Home: FunctionComponent = () => {
 
     return(
         <>

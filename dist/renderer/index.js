@@ -34417,9 +34417,13 @@ var Home_1 = __importDefault(__webpack_require__(/*! ./components/Home */ "./src
 var CreateReference_1 = __importDefault(__webpack_require__(/*! ./components/CreateReference */ "./src/components/CreateReference.tsx"));
 var References_1 = __importDefault(__webpack_require__(/*! ./components/References */ "./src/components/References.tsx"));
 __webpack_require__(/*! ./assets/stylesheets/styles.scss */ "./src/assets/stylesheets/styles.scss");
+var context_1 = __webpack_require__(/*! ./context/references/context */ "./src/context/references/context.tsx");
+var actions_1 = __webpack_require__(/*! ./context/actions */ "./src/context/actions.ts");
 var App = function () {
+    var _a = react_1.useContext(context_1.ReferenceStore), refs = _a[0], refDispatch = _a[1];
     react_1.useEffect(function () {
         setTheme();
+        actions_1.fetchItems(refDispatch);
     }, []);
     function setTheme() {
         var _a;
@@ -34439,7 +34443,8 @@ var App = function () {
                     react_1.default.createElement(react_router_dom_1.Redirect, { to: "/" }))))));
 };
 react_dom_1.render(react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
-    react_1.default.createElement(App, null)), document.querySelector('div#⌘'));
+    react_1.default.createElement(context_1.ReferencesProvider, null,
+        react_1.default.createElement(App, null))), document.querySelector('div#⌘'));
 
 
 /***/ }),
@@ -34476,8 +34481,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var actions_1 = __webpack_require__(/*! ../context/actions */ "./src/context/actions.ts");
 var context_1 = __webpack_require__(/*! ../context/references/context */ "./src/context/references/context.tsx");
-var types_enum_1 = __webpack_require__(/*! ../context/types.enum */ "./src/context/types.enum.ts");
 var Input_1 = __importDefault(__webpack_require__(/*! ./elements/Input */ "./src/components/elements/Input.tsx"));
 var InputArea_1 = __importDefault(__webpack_require__(/*! ./elements/InputArea */ "./src/components/elements/InputArea.tsx"));
 var CreateReference = function () {
@@ -34495,7 +34500,7 @@ var CreateReference = function () {
         var dateNow = new Date().toISOString();
         setCreated(dateNow);
         setLastAccessed(dateNow);
-        refDispatch({ type: types_enum_1.iDispatchActionTypes.CREATE_ONE, payload: formatDataObject() });
+        actions_1.createItem(formatDataObject(), refDispatch);
     }
     function clearData() {
         setTitle('');
@@ -34513,8 +34518,8 @@ var CreateReference = function () {
             title: title,
             url: url,
             authors: authors,
-            created: created,
-            lastAccessed: lastAccessed,
+            created: '',
+            updated: '',
             notes: notes,
             publisher: publisher,
             publicationMonth: parseInt(publicationMonth),
@@ -34583,6 +34588,32 @@ exports.default = Home;
 
 /***/ }),
 
+/***/ "./src/components/Reference.tsx":
+/*!**************************************!*\
+  !*** ./src/components/Reference.tsx ***!
+  \**************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var Reference = function (_a) {
+    var reference = _a.reference, edit = _a.edit, remove = _a.remove;
+    return (react_1.default.createElement("div", { className: "reference-body" },
+        react_1.default.createElement("h1", null, reference.title),
+        react_1.default.createElement("p", null, reference.authors),
+        react_1.default.createElement("button", { onClick: function () { return edit(reference.id); } }, "Edit"),
+        react_1.default.createElement("button", { onClick: function () { return remove(reference.id); } }, "Delete")));
+};
+exports.default = Reference;
+
+
+/***/ }),
+
 /***/ "./src/components/References.tsx":
 /*!***************************************!*\
   !*** ./src/components/References.tsx ***!
@@ -34615,19 +34646,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var context_1 = __webpack_require__(/*! ../context/references/context */ "./src/context/references/context.tsx");
+var actions_1 = __webpack_require__(/*! ../context/actions */ "./src/context/actions.ts");
 var Input_1 = __importDefault(__webpack_require__(/*! ./elements/Input */ "./src/components/elements/Input.tsx"));
+var Reference_1 = __importDefault(__webpack_require__(/*! ./Reference */ "./src/components/Reference.tsx"));
 var References = function () {
     var _a = react_1.useState(''), search = _a[0], setSearch = _a[1];
+    var _b = react_1.useContext(context_1.ReferenceStore), refs = _b[0], refDispatch = _b[1];
     function filterReferences(value) {
         setSearch(value);
         console.log({ value: value });
+    }
+    function editReference(id) { console.log({ action: 'edit', id: id }); }
+    function removeReference(id) {
+        actions_1.deleteItem(id, refDispatch);
     }
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement("h1", null, "References"),
         react_1.default.createElement("div", { className: "filter-panel" },
             react_1.default.createElement("h3", null, "Filters"),
             react_1.default.createElement("div", { className: "filters-wrap" },
-                react_1.default.createElement(Input_1.default, { type: "text", changeFn: filterReferences })))));
+                react_1.default.createElement(Input_1.default, { type: "text", changeFn: filterReferences }))),
+        react_1.default.createElement("div", { className: "content-panel" }, refs.map(function (ref, i) {
+            return react_1.default.createElement(Reference_1.default, { key: i, reference: ref, edit: editReference, remove: removeReference });
+        }))));
 };
 exports.default = References;
 
@@ -34692,6 +34734,46 @@ exports.default = (function (props) {
         react_1.default.createElement("textarea", { onChange: function (e) { return props.changeFn(e.target.value); }, placeholder: props.placeholder, value: props.value }),
         react_1.default.createElement("i", null, "clear")));
 });
+
+
+/***/ }),
+
+/***/ "./src/context/actions.ts":
+/*!********************************!*\
+  !*** ./src/context/actions.ts ***!
+  \********************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.updateItem = exports.deleteItem = exports.fetchItems = exports.createItem = void 0;
+var types_enum_1 = __webpack_require__(/*! ./types.enum */ "./src/context/types.enum.ts");
+var reference_data_1 = __importDefault(__webpack_require__(/*! ../tmp/reference-data */ "./src/tmp/reference-data.ts"));
+function createItem(item, dispatch) {
+    // api call
+    dispatch({ type: types_enum_1.iDispatchActionTypes.CREATE_ONE, payload: item });
+}
+exports.createItem = createItem;
+function fetchItems(dispatch) {
+    // api call
+    var data = reference_data_1.default();
+    dispatch({ type: types_enum_1.iDispatchActionTypes.FETCH, payload: data });
+}
+exports.fetchItems = fetchItems;
+function deleteItem(id, dispatch) {
+    // api call
+    dispatch({ type: types_enum_1.iDispatchActionTypes.DELETE_ONE, payload: id });
+}
+exports.deleteItem = deleteItem;
+function updateItem(item, dispatch) {
+    // api call
+    dispatch({ type: types_enum_1.iDispatchActionTypes.UPDATE_ONE, payload: item });
+}
+exports.updateItem = updateItem;
 
 
 /***/ }),
@@ -34800,6 +34882,47 @@ var iDispatchActionTypes;
     iDispatchActionTypes["DELETE_ONE"] = "delete_one";
     iDispatchActionTypes["FETCH"] = "fetch";
 })(iDispatchActionTypes = exports.iDispatchActionTypes || (exports.iDispatchActionTypes = {}));
+
+
+/***/ }),
+
+/***/ "./src/tmp/reference-data.ts":
+/*!***********************************!*\
+  !*** ./src/tmp/reference-data.ts ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.default = (function () {
+    return [
+        {
+            id: '60c2451a39d341000069ce0e',
+            title: "My first Reference",
+            url: "www.numberone.com",
+            authors: "Hayward. J.",
+            created: '2019-03-05T18:19:04.141Z',
+            updated: '2021-06-10T17:00:47.593Z',
+            notes: "These are some notes",
+            publisher: "Peter John Publishing",
+            publicationMonth: 9,
+            publicationYear: 2020
+        },
+        {
+            id: '60c2452b39d341000069ce0f',
+            title: "Once upon a dream",
+            url: "www.disney.com",
+            authors: "Walt. J.",
+            created: '2016-06-04T07:52:56.924Z',
+            updated: '2021-06-10T13:00:47.593Z',
+            notes: "I know you, I walked with you once upon a dream",
+            publisher: "Mickey Mouse Publishing",
+            publicationMonth: 2,
+            publicationYear: 1998
+        }
+    ];
+});
 
 
 /***/ }),

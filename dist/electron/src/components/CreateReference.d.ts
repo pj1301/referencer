@@ -1,3 +1,3 @@
-/// <reference types="react" />
-declare const CreateReference: () => JSX.Element;
+import { FunctionComponent } from 'react';
+declare const CreateReference: FunctionComponent;
 export default CreateReference;

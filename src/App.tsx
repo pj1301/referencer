@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { FunctionComponent, useContext, useEffect } from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 
@@ -6,11 +6,17 @@ import Home from './components/Home';
 import CreateReference from './components/CreateReference';
 import References from './components/References';
 import './assets/stylesheets/styles.scss';
+import { ReferencesProvider, ReferenceStore } from './context/references/context';
+import { fetchItems } from './context/actions';
+import { iReference } from './models/reference.interface';
 
-const App = () => {
+
+const App: FunctionComponent = () => {
+	const [refs, refDispatch] = useContext(ReferenceStore);
 
     useEffect(() => {
         setTheme();
+		fetchItems<iReference>(refDispatch);
     }, []);
 
     function setTheme() {
@@ -26,9 +32,9 @@ const App = () => {
             </div>
             <div id="content-panel">
                 <Switch>
-                    <Route path="/" exact={true} component={Home} />
-                    <Route path="/references" component={References} />
-                    <Route path="/create-reference" component={CreateReference} />
+					<Route path="/" exact={true} component={Home} />
+					<Route path="/references" component={References} />
+					<Route path="/create-reference" component={CreateReference} />
                     <Route path="*" >
                         <Redirect to="/" />
                     </Route>
@@ -40,7 +46,9 @@ const App = () => {
 
 render(
     <Router>
-        <App />
+		<ReferencesProvider>
+        	<App />
+		</ReferencesProvider>
     </Router>,
     document.querySelector('div#⌘')
 );

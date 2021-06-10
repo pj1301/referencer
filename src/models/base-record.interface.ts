@@ -1,4 +1,4 @@
 export interface iBaseRecordProperties { 
-	id: string
-	timestamp: string;
+	id?: string
+	created: string;
 };

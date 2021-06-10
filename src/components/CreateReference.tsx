@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'; 
+import React, { FunctionComponent, useContext, useState } from 'react'; 
+import { createItem } from '../context/actions';
 import { ReferenceStore } from '../context/references/context';
-import { iDispatchActionTypes } from '../context/types.enum';
 import { iReference } from '../models/reference.interface';
 import Input from './elements/Input';
 import InputArea from './elements/InputArea';
 
-const CreateReference = (): JSX.Element => {
+const CreateReference: FunctionComponent = () => {
     const [refState, refDispatch] = useContext(ReferenceStore);
     const [title, setTitle] = useState('');
     const [url, setUrl] = useState('');
@@ -21,7 +21,7 @@ const CreateReference = (): JSX.Element => {
         const dateNow = new Date().toISOString();
         setCreated(dateNow);
         setLastAccessed(dateNow);
-        refDispatch({ type: iDispatchActionTypes.CREATE_ONE, payload: formatDataObject() as iReference });
+		createItem<iReference>(formatDataObject(), refDispatch);
     }
 
     function clearData(): void {
@@ -36,13 +36,13 @@ const CreateReference = (): JSX.Element => {
         setPublicationYear('');
     }
 
-    function formatDataObject(): object {
+    function formatDataObject(): iReference {
         return {
             title,
             url,
             authors,
-            created,
-            lastAccessed,
+            created: '',
+            updated: '',
             notes,
             publisher,
             publicationMonth: parseInt(publicationMonth),

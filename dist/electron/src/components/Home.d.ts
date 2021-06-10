@@ -1,3 +1,3 @@
-/// <reference types="react" />
-declare const Home: () => JSX.Element;
+import { FunctionComponent } from 'react';
+declare const Home: FunctionComponent;
 export default Home;
