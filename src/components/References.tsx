@@ -20,14 +20,7 @@ const References: FunctionComponent = () => {
 	}
 
     return(
-        <>
-            <h1>References</h1>
-            <div className="filter-panel">
-                <h3>Filters</h3>
-                <div className="filters-wrap">
-                    <Input type="text" changeFn={filterReferences} />
-                </div>
-            </div>
+        <div id="references">
 			<div className="content-panel">
 				{refs.filter((ref: iReference) => {
 					if (ref.title.toLowerCase().includes(search)) return ref;
@@ -37,7 +30,7 @@ const References: FunctionComponent = () => {
 					return <Reference key={i} reference={ref} edit={editReference} remove={removeReference} />
 				})}
 			</div>
-        </>
+        </div>
     )
 }
 

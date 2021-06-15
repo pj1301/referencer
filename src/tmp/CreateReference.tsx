@@ -2,8 +2,8 @@ import React, { FunctionComponent, useContext, useState } from 'react';
 import { createItem } from '../context/actions';
 import { ReferenceStore } from '../context/references/context';
 import { iReference } from '../models/reference.interface';
-import Input from './elements/Input';
-import InputArea from './elements/InputArea';
+import Input from '../components/elements/Input';
+import InputArea from '../components/elements/InputArea';
 
 const CreateReference: FunctionComponent = () => {
     const [refState, refDispatch] = useContext(ReferenceStore);

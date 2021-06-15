@@ -25,3 +25,8 @@ export function updateItem<T>(item: T, dispatch: ItemDispatch<T>): void {
 	// api call
 	dispatch({ type: iDispatchActionTypes.UPDATE_ONE, payload: item });
 }
+
+export function deleteMultipleItems<T>(ids: Array<string>, dispatch: ItemDispatch<T>): void {
+	// api call
+	dispatch({ type: iDispatchActionTypes.DELETE_MANY, payload: ids });
+}

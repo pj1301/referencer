@@ -1,0 +1,18 @@
+div#filter-panel {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 30px;
+
+	.option {
+		margin: 0 15px;
+		color: $contrast;
+		cursor: pointer;
+	}
+
+	.separator {
+		background: $contrast;
+		padding: 8px 1px;
+	}
+}

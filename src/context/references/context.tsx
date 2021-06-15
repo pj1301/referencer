@@ -1,4 +1,5 @@
 import React, { createContext, Dispatch, useReducer } from 'react';
+import { FunctionComponent } from 'react';
 import { iReducerDispatch } from '../../models/reducer-action.interface';
 import { iReference } from '../../models/reference.interface';
 import { initialState, reducer } from './reducer';
@@ -15,4 +16,4 @@ const ReferencesProvider = ({ children }: JSX.ElementChildrenAttribute): JSX.Ele
     )
 }
 
-export { ReferenceStore, ReferencesProvider }
+export { ReferenceStore, ReferencesProvider };

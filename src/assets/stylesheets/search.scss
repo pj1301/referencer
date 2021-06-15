@@ -1,0 +1,19 @@
+div#Search {
+	width: 100%;
+	padding: 20px;
+	position: relative;
+
+	input {
+		width: 100%;
+		padding: 10px 20px;
+		border-radius: 30px;
+	}
+
+	.clear-input {
+		position: absolute;
+		top: 25px;
+		right: 35px;
+		font-size: 2em;
+		cursor: pointer;
+	}
+}
