@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n#⌘.dark {\n  background: #363333; }\n  #⌘.dark #navigation-panel .nav-option {\n    border-bottom: 2px solid #577da1;\n    margin: 0 5px;\n    padding: 5px;\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n    color: whitesmoke;\n    cursor: pointer; }\n  #⌘.dark h1, #⌘.dark h2, #⌘.dark h3, #⌘.dark h4 {\n    color: #577da1; }\n  #⌘.dark p {\n    color: whitesmoke; }\n  #⌘.dark div.form-input {\n    color: #777777; }\n    #⌘.dark div.form-input i {\n      color: #777777; }\n  #⌘.dark button.btn.btn-danger {\n    background: #940505;\n    color: whitesmoke; }\n  #⌘.dark button.btn.btn-primary {\n    background: #577da1;\n    color: #363333; }\n  #⌘.dark button.btn.btn-secondary {\n    background: #777777;\n    color: #363333; }\n\ndiv#Search {\n  width: 100%;\n  padding: 20px;\n  position: relative; }\n  div#Search input {\n    width: 100%;\n    padding: 10px 20px;\n    border-radius: 30px; }\n  div#Search .clear-input {\n    position: absolute;\n    top: 25px;\n    right: 35px;\n    font-size: 2em;\n    cursor: pointer; }\n\ndiv#filter-panel {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n  margin-bottom: 30px; }\n  div#filter-panel .option {\n    margin: 0 15px;\n    color: #e0e0e0;\n    cursor: pointer; }\n  div#filter-panel .separator {\n    background: #e0e0e0;\n    padding: 8px 1px; }\n\n#sidebar {\n  width: 20vw;\n  border-right: 1px solid #e0e0e0;\n  padding-right: 2vw; }\n\n#references {\n  padding-left: 2vw;\n  width: 100%;\n  overflow: scroll; }\n\n.reference-body {\n  padding: 10px;\n  border-radius: 10px; }\n  .reference-body h1 {\n    margin: 0 0 10px 0; }\n  .reference-body div.grid {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n    grid-auto-rows: minmax(auto, 60px);\n    grid-gap: 1rem;\n    grid-auto-flow: dense; }\n  .reference-body p {\n    margin: 10px 0; }\n  .reference-body .button-wrap {\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end; }\n\n* {\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  box-sizing: border-box;\n  outline: none; }\n\nhtml, body {\n  margin: 0;\n  padding: 0;\n  height: 100vh; }\n\nhtml {\n  overflow: hidden; }\n\n#⌘ {\n  width: 100%;\n  padding: 30px;\n  height: 100vh; }\n\ndiv.content-panel {\n  display: flex;\n  flex-direction: row;\n  height: calc(100vh - 200px); }\n  div.content-panel div {\n    display: flex;\n    flex-direction: column; }\n\nbutton {\n  min-width: 120px;\n  min-height: 40px;\n  cursor: pointer;\n  border: 0px solid grey;\n  border-radius: 5px;\n  margin: 5px 10px; }\n", "",{"version":3,"sources":["webpack://./src/assets/stylesheets/styles.scss","webpack://./src/assets/stylesheets/dark.scss","webpack://./src/assets/stylesheets/search.scss","webpack://./src/assets/stylesheets/filters.scss","webpack://./src/assets/stylesheets/sidebar.scss","webpack://./src/assets/stylesheets/references.scss","webpack://./src/assets/stylesheets/reference.scss"],"names":[],"mappings":"AAAA,gBAAgB;ACQhB;EACI,mBAAmB,EAAA;EADvB;IAKY,gCAVI;IAWJ,aAAa;IACb,YAAY;IACZ,aAAa;IACb,mBAAmB;IACnB,uBAAuB;IACvB,mBAAmB;IACnB,iBAhBqB;IAiBrB,eAAe,EAAA;EAb3B;IAkBQ,cAvBQ,EAAA;EAKhB;IAsBQ,iBA1ByB,EAAA;EAIjC;IA2BQ,cA9Bc,EAAA;IAGtB;MA8BY,cAjCU,EAAA;EAGtB;IAqCY,mBAvCW;IAwCX,iBA1CqB,EAAA;EAIjC;IA0CY,mBA/CI;IAgDJ,cAnDE,EAAA;EAQd;IA+CY,mBAlDU;IAmDV,cAxDE,EAAA;;ACAd;EACC,WAAW;EACX,aAAa;EACb,kBAAkB,EAAA;EAHnB;IAME,WAAW;IACX,kBAAkB;IAClB,mBAAmB,EAAA;EARrB;IAYE,kBAAkB;IAClB,SAAS;IACT,WAAW;IACX,cAAc;IACd,eAAe,EAAA;;AChBjB;EACC,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,mBAAmB;EACnB,mBAAmB,EAAA;EALpB;IAQE,cAAc;IACd,cFPgB;IEQhB,eAAe,EAAA;EAVjB;IAcE,mBFZgB;IEahB,gBAAgB,EAAA;;ACflB;EACC,WAAW;EACX,+BHAiB;EGCjB,kBAAkB,EAAA;;ACHnB;EACC,iBAAiB;EACjB,WAAW;EACX,gBAAgB,EAAA;;ACHjB;EACC,aAAa;EACb,mBAAmB,EAAA;EAFpB;IAKE,kBAAkB,EAAA;EALpB;IASE,aAAa;IACb,2DAA2D;IAC3D,kCAAkC;IAClC,cAAc;IACd,qBAAqB,EAAA;EAbvB;IAiBE,cAAc,EAAA;EAjBhB;IAqBE,aAAa;IACb,mBAAmB;IACnB,yBAAyB,EAAA;;ANhB3B;EACI,4DAA2D;EAC3D,sBAAsB;EACtB,aAAa,EAAA;;AAGjB;EACC,SAAS;EACT,UAAU;EACV,aAAa,EAAA;;AAGd;EACC,gBAAgB,EAAA;;AAGjB;EACI,WAAW;EACX,aAAa;EAChB,aAAa,EAAA;;AAGd;EACC,aAAa;EACb,mBAAmB;EACnB,2BAA2B,EAAA;EAH5B;IAME,aAAa;IACb,sBAAsB,EAAA;;AAIxB;EACI,gBAAgB;EAChB,gBAAgB;EAChB,eAAe;EACf,sBAAsB;EACtB,kBAAkB;EAClB,gBAAgB,EAAA","sourcesContent":["@import './dark.scss';\n@import './search.scss';\n@import './filters.scss';\n@import './sidebar.scss';\n@import './references.scss';\n@import './reference.scss';\n\n* {\n    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n    box-sizing: border-box;\n    outline: none;\n}\n\nhtml, body {\n\tmargin: 0;\n\tpadding: 0;\n\theight: 100vh;\n}\n\nhtml {\n\toverflow: hidden;\n}\n\n#⌘ {\n    width: 100%;\n    padding: 30px;\n\theight: 100vh;\n}\n\ndiv.content-panel {\n\tdisplay: flex;\n\tflex-direction: row;\n\theight: calc(100vh - 200px);\n\n\tdiv {\n\t\tdisplay: flex;\n\t\tflex-direction: column;\n\t}\n}\n\nbutton {\n    min-width: 120px;\n    min-height: 40px;\n    cursor: pointer;\n    border: 0px solid grey;\n    border-radius: 5px;\n    margin: 5px 10px;\n}","$core: #363333;\n$relief: #5e7bb8;\n$contrast: #e0e0e0;\n$titles: #577da1;\n$secondary-text: rgb(245,245,245);\n$primary-text: #777777;\n$danger: rgb(148, 5, 5);\n\n#⌘.dark {\n    background: #363333;\n\n    #navigation-panel {\n        .nav-option {\n            border-bottom: 2px solid $titles;\n            margin: 0 5px;\n            padding: 5px;\n            display: flex;\n            flex-direction: row;\n            justify-content: center;\n            align-items: center;\n            color: $secondary-text;\n            cursor: pointer;\n        }\n    }\n\n    h1, h2, h3, h4 {\n        color: $titles;\n    }\n\n    p {\n        color: $secondary-text;\n    }\n\n\n    div.form-input {\n        color: $primary-text;\n\n        i {\n            color: $primary-text;\n        }\n    }\n\n    button.btn {\n        \n        &.btn-danger {\n            background: $danger;\n            color: $secondary-text;\n        }\n\n        &.btn-primary {\n            background: $titles;\n            color: $core;\n        }\n\n        &.btn-secondary {\n            background: $primary-text;\n            color: $core;\n        }\n    }\n}","div#Search {\n\twidth: 100%;\n\tpadding: 20px;\n\tposition: relative;\n\n\tinput {\n\t\twidth: 100%;\n\t\tpadding: 10px 20px;\n\t\tborder-radius: 30px;\n\t}\n\n\t.clear-input {\n\t\tposition: absolute;\n\t\ttop: 25px;\n\t\tright: 35px;\n\t\tfont-size: 2em;\n\t\tcursor: pointer;\n\t}\n}","div#filter-panel {\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: center;\n\talign-items: center;\n\tmargin-bottom: 30px;\n\n\t.option {\n\t\tmargin: 0 15px;\n\t\tcolor: $contrast;\n\t\tcursor: pointer;\n\t}\n\n\t.separator {\n\t\tbackground: $contrast;\n\t\tpadding: 8px 1px;\n\t}\n}","#sidebar {\n\twidth: 20vw;\n\tborder-right: 1px solid $contrast;\n\tpadding-right: 2vw;\n}","#references {\n\tpadding-left: 2vw;\n\twidth: 100%;\n\toverflow: scroll;\n}",".reference-body {\n\tpadding: 10px;\n\tborder-radius: 10px;\n\n\th1 {\n\t\tmargin: 0 0 10px 0;\n\t}\n\n\tdiv.grid {\n\t\tdisplay: grid;\n\t\tgrid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n\t\tgrid-auto-rows: minmax(auto, 60px);\n\t\tgrid-gap: 1rem;\n\t\tgrid-auto-flow: dense;\n\t}\n\n\tp {\n\t\tmargin: 10px 0;\n\t}\n\n\t.button-wrap {\n\t\tdisplay: flex;\n\t\tflex-direction: row;\n\t\tjustify-content: flex-end;\n\t}\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n#⌘.dark {\n  background: #363333; }\n  #⌘.dark #navigation-panel .nav-option {\n    border-bottom: 2px solid #577da1;\n    margin: 0 5px;\n    padding: 5px;\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n    color: whitesmoke;\n    cursor: pointer; }\n  #⌘.dark h1, #⌘.dark h2, #⌘.dark h3, #⌘.dark h4 {\n    color: #577da1; }\n  #⌘.dark p {\n    color: whitesmoke; }\n  #⌘.dark div.form-input {\n    color: #777777; }\n    #⌘.dark div.form-input i {\n      color: #777777; }\n  #⌘.dark button.btn.btn-danger {\n    background: #940505;\n    color: whitesmoke; }\n  #⌘.dark button.btn.btn-primary {\n    background: #577da1;\n    color: #363333; }\n  #⌘.dark button.btn.btn-secondary {\n    background: #777777;\n    color: #363333; }\n\ndiv#Search {\n  width: 100%;\n  padding: 20px;\n  position: relative; }\n  div#Search input {\n    width: 100%;\n    padding: 10px 20px;\n    border-radius: 30px; }\n  div#Search .clear-input {\n    position: absolute;\n    top: 25px;\n    right: 35px;\n    font-size: 2em;\n    cursor: pointer; }\n\ndiv#filter-panel {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n  margin-bottom: 30px; }\n  div#filter-panel .option {\n    margin: 0 15px;\n    color: #e0e0e0;\n    cursor: pointer; }\n  div#filter-panel .separator {\n    background: #e0e0e0;\n    padding: 8px 1px; }\n\n#sidebar {\n  width: 20vw;\n  border-right: 1px solid #e0e0e0;\n  padding-right: 2vw; }\n  #sidebar .tag-wrap {\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    align-items: flex-start; }\n    #sidebar .tag-wrap .search-option {\n      background: #e0e0e0;\n      border-radius: 30px;\n      display: flex;\n      flex-direction: row;\n      justify-content: space-between;\n      align-items: center;\n      padding: 5px 10px;\n      font-size: 0.8em;\n      width: max-content;\n      margin: 5px;\n      height: max-content; }\n      #sidebar .tag-wrap .search-option .search-option-text {\n        padding: 0 5px;\n        min-width: 30px; }\n      #sidebar .tag-wrap .search-option i {\n        cursor: pointer; }\n\n#references {\n  padding-left: 2vw;\n  width: 100%;\n  overflow: scroll; }\n\n.reference-body {\n  padding: 10px;\n  border-radius: 10px; }\n  .reference-body h1 {\n    margin: 0 0 10px 0; }\n  .reference-body div.grid {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n    grid-auto-rows: minmax(auto, 60px);\n    grid-gap: 1rem;\n    grid-auto-flow: dense; }\n  .reference-body p {\n    margin: 10px 0; }\n  .reference-body .button-wrap {\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end; }\n\n* {\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  box-sizing: border-box;\n  outline: none; }\n\nhtml, body {\n  margin: 0;\n  padding: 0;\n  height: 100vh; }\n\nhtml {\n  overflow: hidden; }\n\n#⌘ {\n  width: 100%;\n  padding: 30px;\n  height: 100vh; }\n\ndiv.content-panel {\n  display: flex;\n  flex-direction: row;\n  height: calc(100vh - 200px); }\n  div.content-panel div {\n    display: flex;\n    flex-direction: column; }\n\nbutton {\n  min-width: 120px;\n  min-height: 40px;\n  cursor: pointer;\n  border: 0px solid grey;\n  border-radius: 5px;\n  margin: 5px 10px; }\n", "",{"version":3,"sources":["webpack://./src/assets/stylesheets/styles.scss","webpack://./src/assets/stylesheets/dark.scss","webpack://./src/assets/stylesheets/search.scss","webpack://./src/assets/stylesheets/filters.scss","webpack://./src/assets/stylesheets/sidebar.scss","webpack://./src/assets/stylesheets/references.scss","webpack://./src/assets/stylesheets/reference.scss"],"names":[],"mappings":"AAAA,gBAAgB;ACQhB;EACI,mBAAmB,EAAA;EADvB;IAKY,gCAVI;IAWJ,aAAa;IACb,YAAY;IACZ,aAAa;IACb,mBAAmB;IACnB,uBAAuB;IACvB,mBAAmB;IACnB,iBAhBqB;IAiBrB,eAAe,EAAA;EAb3B;IAkBQ,cAvBQ,EAAA;EAKhB;IAsBQ,iBA1ByB,EAAA;EAIjC;IA2BQ,cA9Bc,EAAA;IAGtB;MA8BY,cAjCU,EAAA;EAGtB;IAqCY,mBAvCW;IAwCX,iBA1CqB,EAAA;EAIjC;IA0CY,mBA/CI;IAgDJ,cAnDE,EAAA;EAQd;IA+CY,mBAlDU;IAmDV,cAxDE,EAAA;;ACAd;EACC,WAAW;EACX,aAAa;EACb,kBAAkB,EAAA;EAHnB;IAME,WAAW;IACX,kBAAkB;IAClB,mBAAmB,EAAA;EARrB;IAYE,kBAAkB;IAClB,SAAS;IACT,WAAW;IACX,cAAc;IACd,eAAe,EAAA;;AChBjB;EACC,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,mBAAmB;EACnB,mBAAmB,EAAA;EALpB;IAQE,cAAc;IACd,cFPgB;IEQhB,eAAe,EAAA;EAVjB;IAcE,mBFZgB;IEahB,gBAAgB,EAAA;;ACflB;EACC,WAAW;EACX,+BHAiB;EGCjB,kBAAkB,EAAA;EAHnB;IAME,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,uBAAuB,EAAA;IATzB;MAYG,mBHVe;MGWf,mBAAmB;MACnB,aAAa;MACb,mBAAmB;MACnB,8BAA8B;MAC9B,mBAAmB;MACnB,iBAAiB;MACjB,gBAAgB;MAChB,kBAAkB;MAClB,WAAW;MACX,mBAAmB,EAAA;MAtBtB;QAyBI,cAAc;QACd,eAAe,EAAA;MA1BnB;QA8BI,eAAe,EAAA;;AC9BnB;EACC,iBAAiB;EACjB,WAAW;EACX,gBAAgB,EAAA;;ACHjB;EACC,aAAa;EACb,mBAAmB,EAAA;EAFpB;IAKE,kBAAkB,EAAA;EALpB;IASE,aAAa;IACb,2DAA2D;IAC3D,kCAAkC;IAClC,cAAc;IACd,qBAAqB,EAAA;EAbvB;IAiBE,cAAc,EAAA;EAjBhB;IAqBE,aAAa;IACb,mBAAmB;IACnB,yBAAyB,EAAA;;ANhB3B;EACI,4DAA2D;EAC3D,sBAAsB;EACtB,aAAa,EAAA;;AAGjB;EACC,SAAS;EACT,UAAU;EACV,aAAa,EAAA;;AAGd;EACC,gBAAgB,EAAA;;AAGjB;EACI,WAAW;EACX,aAAa;EAChB,aAAa,EAAA;;AAGd;EACC,aAAa;EACb,mBAAmB;EACnB,2BAA2B,EAAA;EAH5B;IAME,aAAa;IACb,sBAAsB,EAAA;;AAIxB;EACI,gBAAgB;EAChB,gBAAgB;EAChB,eAAe;EACf,sBAAsB;EACtB,kBAAkB;EAClB,gBAAgB,EAAA","sourcesContent":["@import './dark.scss';\n@import './search.scss';\n@import './filters.scss';\n@import './sidebar.scss';\n@import './references.scss';\n@import './reference.scss';\n\n* {\n    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n    box-sizing: border-box;\n    outline: none;\n}\n\nhtml, body {\n\tmargin: 0;\n\tpadding: 0;\n\theight: 100vh;\n}\n\nhtml {\n\toverflow: hidden;\n}\n\n#⌘ {\n    width: 100%;\n    padding: 30px;\n\theight: 100vh;\n}\n\ndiv.content-panel {\n\tdisplay: flex;\n\tflex-direction: row;\n\theight: calc(100vh - 200px);\n\n\tdiv {\n\t\tdisplay: flex;\n\t\tflex-direction: column;\n\t}\n}\n\nbutton {\n    min-width: 120px;\n    min-height: 40px;\n    cursor: pointer;\n    border: 0px solid grey;\n    border-radius: 5px;\n    margin: 5px 10px;\n}","$core: #363333;\n$relief: #5e7bb8;\n$contrast: #e0e0e0;\n$titles: #577da1;\n$secondary-text: rgb(245,245,245);\n$primary-text: #777777;\n$danger: rgb(148, 5, 5);\n\n#⌘.dark {\n    background: #363333;\n\n    #navigation-panel {\n        .nav-option {\n            border-bottom: 2px solid $titles;\n            margin: 0 5px;\n            padding: 5px;\n            display: flex;\n            flex-direction: row;\n            justify-content: center;\n            align-items: center;\n            color: $secondary-text;\n            cursor: pointer;\n        }\n    }\n\n    h1, h2, h3, h4 {\n        color: $titles;\n    }\n\n    p {\n        color: $secondary-text;\n    }\n\n\n    div.form-input {\n        color: $primary-text;\n\n        i {\n            color: $primary-text;\n        }\n    }\n\n    button.btn {\n        \n        &.btn-danger {\n            background: $danger;\n            color: $secondary-text;\n        }\n\n        &.btn-primary {\n            background: $titles;\n            color: $core;\n        }\n\n        &.btn-secondary {\n            background: $primary-text;\n            color: $core;\n        }\n    }\n}","div#Search {\n\twidth: 100%;\n\tpadding: 20px;\n\tposition: relative;\n\n\tinput {\n\t\twidth: 100%;\n\t\tpadding: 10px 20px;\n\t\tborder-radius: 30px;\n\t}\n\n\t.clear-input {\n\t\tposition: absolute;\n\t\ttop: 25px;\n\t\tright: 35px;\n\t\tfont-size: 2em;\n\t\tcursor: pointer;\n\t}\n}","div#filter-panel {\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: center;\n\talign-items: center;\n\tmargin-bottom: 30px;\n\n\t.option {\n\t\tmargin: 0 15px;\n\t\tcolor: $contrast;\n\t\tcursor: pointer;\n\t}\n\n\t.separator {\n\t\tbackground: $contrast;\n\t\tpadding: 8px 1px;\n\t}\n}","#sidebar {\n\twidth: 20vw;\n\tborder-right: 1px solid $contrast;\n\tpadding-right: 2vw;\n\n\t.tag-wrap {\n\t\tdisplay: flex;\n\t\tflex-direction: row;\n\t\tflex-wrap: wrap;\n\t\talign-items: flex-start;\n\t\t\n\t\t.search-option {\n\t\t\tbackground: $contrast;\n\t\t\tborder-radius: 30px;\n\t\t\tdisplay: flex;\n\t\t\tflex-direction: row;\n\t\t\tjustify-content: space-between;\n\t\t\talign-items: center;\n\t\t\tpadding: 5px 10px;\n\t\t\tfont-size: 0.8em;\n\t\t\twidth: max-content;\n\t\t\tmargin: 5px;\n\t\t\theight: max-content;\n\t\t\t\n\t\t\t.search-option-text {\n\t\t\t\tpadding: 0 5px;\n\t\t\t\tmin-width: 30px;\n\t\t\t}\n\t\t\t\n\t\t\ti {\n\t\t\t\tcursor: pointer;\n\t\t\t}\n\t\t}\n\t}\n}","#references {\n\tpadding-left: 2vw;\n\twidth: 100%;\n\toverflow: scroll;\n}",".reference-body {\n\tpadding: 10px;\n\tborder-radius: 10px;\n\n\th1 {\n\t\tmargin: 0 0 10px 0;\n\t}\n\n\tdiv.grid {\n\t\tdisplay: grid;\n\t\tgrid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n\t\tgrid-auto-rows: minmax(auto, 60px);\n\t\tgrid-gap: 1rem;\n\t\tgrid-auto-flow: dense;\n\t}\n\n\tp {\n\t\tmargin: 10px 0;\n\t}\n\n\t.button-wrap {\n\t\tdisplay: flex;\n\t\tflex-direction: row;\n\t\tjustify-content: flex-end;\n\t}\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -38585,17 +38585,16 @@ var App = function () {
         (_a = document.querySelector('#⌘')) === null || _a === void 0 ? void 0 : _a.classList.add('dark');
     }
     return (react_1.default.createElement("div", { id: "App" },
-        react_1.default.createElement(context_2.SearchQueryProvider, null,
-            react_1.default.createElement(Search_1.default, null)),
+        react_1.default.createElement(Search_1.default, null),
         react_1.default.createElement(FIlters_1.default, null),
-        react_1.default.createElement(context_2.SearchQueryProvider, null,
-            react_1.default.createElement("div", { className: "content-panel" },
-                react_1.default.createElement(Sidebar_1.default, null),
-                react_1.default.createElement(References_1.default, null)))));
+        react_1.default.createElement("div", { className: "content-panel" },
+            react_1.default.createElement(Sidebar_1.default, null),
+            react_1.default.createElement(References_1.default, null))));
 };
 react_dom_1.render(react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
     react_1.default.createElement(context_1.ReferencesProvider, null,
-        react_1.default.createElement(App, null))), document.querySelector('div#⌘'));
+        react_1.default.createElement(context_2.SearchQueryProvider, null,
+            react_1.default.createElement(App, null)))), document.querySelector('div#⌘'));
 
 
 /***/ }),
@@ -38703,6 +38702,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -38710,26 +38714,41 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var context_1 = __webpack_require__(/*! ../context/references/context */ "./src/context/references/context.tsx");
 var actions_1 = __webpack_require__(/*! ../context/actions */ "./src/context/actions.ts");
+var context_2 = __webpack_require__(/*! ../context/search/context */ "./src/context/search/context.tsx");
 var Reference_1 = __importDefault(__webpack_require__(/*! ./Reference */ "./src/components/Reference.tsx"));
 var References = function () {
-    var _a = react_1.useState(''), search = _a[0], setSearch = _a[1];
-    var _b = react_1.useContext(context_1.ReferenceStore), refs = _b[0], refDispatch = _b[1];
-    function filterReferences(value) {
-        setSearch(value.toLowerCase());
+    var _a = react_1.useContext(context_1.ReferenceStore), refs = _a[0], refDispatch = _a[1];
+    var _b = react_1.useContext(context_2.SearchQueryStore), searchQueries = _b[0], searchQueryDispatch = _b[1];
+    function filterRefs(references) {
+        var results = __spreadArray([], refs);
+        var refCount = references.length;
+        var queryCount = searchQueries.length;
+        if (queryCount === 0)
+            return refs;
+        var handleFilter = function (item) {
+            var index = references.indexOf(item);
+            results.splice(index, 1);
+        };
+        for (var i = 0; i < refCount; i++) {
+            for (var j = 0; j < queryCount; j++) {
+                if (!references[i].title.toLowerCase().includes(searchQueries[j].toLowerCase()))
+                    handleFilter(references[i]);
+                else if (!references[i].authors.toLowerCase().includes(searchQueries[j].toLowerCase()))
+                    handleFilter(references[i]);
+                else if (!references[i].publisher.toLowerCase().includes(searchQueries[j].toLowerCase()))
+                    handleFilter(references[i]);
+                else if (!references[i].url.toLowerCase().includes(searchQueries[j].toLowerCase()))
+                    handleFilter(references[i]);
+            }
+        }
+        return results;
     }
     function editReference(id) { console.log({ action: 'edit', id: id }); }
     function removeReference(id) {
         actions_1.deleteItem(id, refDispatch);
     }
     return (react_1.default.createElement("div", { id: "references" },
-        react_1.default.createElement("div", { className: "content-panel" }, refs.filter(function (ref) {
-            if (ref.title.toLowerCase().includes(search))
-                return ref;
-            if (ref.authors.toLowerCase().includes(search))
-                return ref;
-            if (ref.notes.toLowerCase().includes(search))
-                return ref;
-        }).map(function (ref, i) {
+        react_1.default.createElement("div", { className: "content-panel" }, filterRefs(refs).map(function (ref, i) {
             return react_1.default.createElement(Reference_1.default, { key: i, reference: ref, edit: editReference, remove: removeReference });
         }))));
 };
@@ -38805,14 +38824,39 @@ exports.default = Search;
 
 "use strict";
 
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var context_1 = __webpack_require__(/*! ../context/search/context */ "./src/context/search/context.tsx");
+var md_1 = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.esm.js");
+var actions_1 = __webpack_require__(/*! ../context/actions */ "./src/context/actions.ts");
 var Sidebar = function () {
+    var _a = react_1.useContext(context_1.SearchQueryStore), query = _a[0], queryDispatch = _a[1];
     return (react_1.default.createElement("div", { id: "sidebar" },
-        react_1.default.createElement("p", { style: { color: 'white' } }, "sidebar")));
+        react_1.default.createElement("div", { className: "tag-wrap" }, query.map(function (term, i) {
+            return (react_1.default.createElement("div", { key: i, className: "search-option" },
+                react_1.default.createElement("span", { className: "search-option-text" }, term),
+                react_1.default.createElement("i", { className: "remove-tag", onClick: function () { return actions_1.deleteItem(term, queryDispatch); } },
+                    react_1.default.createElement(md_1.MdClear, null))));
+        }))));
 };
 exports.default = Sidebar;
 

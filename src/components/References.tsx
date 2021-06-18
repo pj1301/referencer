@@ -1,17 +1,34 @@
-import React, { FunctionComponent, useContext, useEffect, useState } from 'react'; 
+import React, { FunctionComponent, useContext } from 'react'; 
 import { ReferenceStore } from '../context/references/context';
 import { updateItem, deleteItem } from '../context/actions';
 import { iReference } from '../models/reference.interface';
-import Input from './elements/Input';
+import { SearchQueryStore } from '../context/search/context';
 import Reference from './Reference';
 
 const References: FunctionComponent = () => {
-    const [search, setSearch] = useState<string>('');
 	const [refs, refDispatch] = useContext(ReferenceStore);
+	const [searchQueries, searchQueryDispatch] = useContext(SearchQueryStore);
 
-    function filterReferences(value: string): void {
-        setSearch(value.toLowerCase());
-    }
+	//bad logic
+	function filterRefs(references: Array<iReference>): Array<iReference> {
+		const results: Array<iReference> = [...refs];
+		const refCount = references.length;
+		const queryCount = searchQueries.length;
+		if (queryCount === 0) return refs;
+		const handleFilter = (item: iReference) => {
+			const index = references.indexOf(item);
+			results.splice(index, 1);
+		}
+		for (let i = 0; i < refCount; i++) {
+			for (let j = 0; j < queryCount; j++) {
+				if (!references[i].title.toLowerCase().includes(searchQueries[j].toLowerCase())) handleFilter(references[i]);
+				else if (!references[i].authors.toLowerCase().includes(searchQueries[j].toLowerCase())) handleFilter(references[i]);
+				else if (!references[i].publisher.toLowerCase().includes(searchQueries[j].toLowerCase())) handleFilter(references[i]);
+				else if (!references[i].url.toLowerCase().includes(searchQueries[j].toLowerCase())) handleFilter(references[i]);
+			}
+		}
+		return results;
+	}
 
 	function editReference(id: string): void { console.log({ action: 'edit', id }); }
 
@@ -22,11 +39,7 @@ const References: FunctionComponent = () => {
     return(
         <div id="references">
 			<div className="content-panel">
-				{refs.filter((ref: iReference) => {
-					if (ref.title.toLowerCase().includes(search)) return ref;
-					if (ref.authors.toLowerCase().includes(search)) return ref;
-					if (ref.notes.toLowerCase().includes(search)) return ref;
-				}).map((ref: iReference, i: number) => {
+				{filterRefs(refs).map((ref: iReference, i: number) => {
 					return <Reference key={i} reference={ref} edit={editReference} remove={removeReference} />
 				})}
 			</div>
@@ -35,3 +48,4 @@ const References: FunctionComponent = () => {
 }
 
 export default References;
+

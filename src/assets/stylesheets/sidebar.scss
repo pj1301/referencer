@@ -2,4 +2,34 @@
 	width: 20vw;
 	border-right: 1px solid $contrast;
 	padding-right: 2vw;
+
+	.tag-wrap {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		
+		.search-option {
+			background: $contrast;
+			border-radius: 30px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			padding: 5px 10px;
+			font-size: 0.8em;
+			width: max-content;
+			margin: 5px;
+			height: max-content;
+			
+			.search-option-text {
+				padding: 0 5px;
+				min-width: 30px;
+			}
+			
+			i {
+				cursor: pointer;
+			}
+		}
+	}
 }

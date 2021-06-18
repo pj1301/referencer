@@ -27,16 +27,12 @@ const App: FunctionComponent = () => {
 
     return(
         <div id="App">
-			<SearchQueryProvider>
-				<Search />
-			</SearchQueryProvider>
+			<Search />
 			<Filters />
-			<SearchQueryProvider>
-				<div className="content-panel">
-					<Sidebar />
-					<References />
-				</div>
-			</SearchQueryProvider>
+			<div className="content-panel">
+				<Sidebar />
+				<References />
+			</div>
         </div>
     )
 }
@@ -44,7 +40,9 @@ const App: FunctionComponent = () => {
 render(
     <Router>
 		<ReferencesProvider>
-        	<App />
+			<SearchQueryProvider>
+        		<App />
+			</SearchQueryProvider>
 		</ReferencesProvider>
     </Router>,
     document.querySelector('div#⌘')
