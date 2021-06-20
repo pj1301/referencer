@@ -1,4 +1,5 @@
-import { app, App, BrowserWindow, Session, BrowserWindowConstructorOptions } from 'electron';
+import { app, App, BrowserWindow, Session, BrowserWindowConstructorOptions, ipcMain, contextBridge, ipcRenderer } from 'electron';
+import { IPCController } from './ipcController';
 
 class Main {
 	private app: App;
@@ -6,7 +7,13 @@ class Main {
         width: 800,
         height: 600,
         minWidth: 400,
-        minHeight: 350
+        minHeight: 350,
+		webPreferences: {
+			nodeIntegration: false,
+			worldSafeExecuteJavaScript: true,
+			contextIsolation: true,
+			preload: `${__dirname}/preload.ts`
+		}
     };
 	private mainWindow!: BrowserWindow;
 	private secondaryWindows!: Array<BrowserWindow>;
@@ -45,6 +52,12 @@ class Main {
 			.on('activate', () => {
 				if (!this.mainWindow) this.createWindow(true);
 			})
+		
+		new IPCController().init();
+	}
+
+	private initialiseIPC(): void {
+		new IPCController().init();
 	}
 }
 

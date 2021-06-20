@@ -11,7 +11,9 @@ import Search from './components/Search';
 import Filters from './components/FIlters';
 import { SearchQueryProvider } from './context/search/context';
 import Sidebar from './components/Sidebar';
+import { initIPC } from './services/ipc.service';
 
+declare global { interface Window { api?: any; } }
 
 const App: FunctionComponent = () => {
 	const [refs, refDispatch] = useContext(ReferenceStore);
@@ -19,6 +21,7 @@ const App: FunctionComponent = () => {
     useEffect(() => {
         setTheme();
 		fetchItems<iReference>(refDispatch);
+		initIPC();
     }, []);
 
     function setTheme() {
