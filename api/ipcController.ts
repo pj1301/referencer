@@ -8,6 +8,7 @@ export class IPCController {
 	}
 
 	public init(): void {
+		console.log('Initialising the IPC controller');
 		this.ipcMain.on('toMain', (event, ...args) => {
 			console.log({event, args});
 		})

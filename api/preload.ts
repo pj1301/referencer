@@ -1,36 +1,42 @@
-import { ipcRenderer, contextBridge } from "electron";
+import { ipcRenderer, contextBridge } from 'electron';
 
 const validChannels = {
-	send: ['toMain'],
-	receive: ['fromMain']
+	send: ['fromMain'],
+	receive: ['toMain']
 };
 
 const contextBridgeOptions = {
-    electronIpcSend: (channel: string, ...arg: any) => {
+    electronIpcSend: (channel: string, ...args: any) => {
+		console.log({ channel, args });
 		if (!validChannels.send.includes(channel)) return;
-		ipcRenderer.send(channel, arg);
+		ipcRenderer.send(channel, args);
 	},
 
-	electronIpcSendSync: (channel: string, ...arg: any) => {
+	electronIpcSendSync: (channel: string, ...args: any) => {
+		console.log({ channel, args });
 		if (!validChannels.send.includes(channel)) return;
-		return ipcRenderer.sendSync(channel, arg);
+		return ipcRenderer.sendSync(channel, args);
 	},
 
-	electronIpcOn: (channel: string, listener: (event: any, ...arg: any) => void) => {
+	electronIpcOn: (channel: string, listener: (event: any, ...args: any) => void) => {
+		console.log({ channel, listener });
 		if (!validChannels.receive.includes(channel)) return;
 		ipcRenderer.on(channel, listener);
 	},
 
-	electronIpcOnce: (channel: string, listener: (event: any, ...arg: any) => void) => {
+	electronIpcOnce: (channel: string, listener: (event: any, ...args: any) => void) => {
+		console.log({ channel, listener });
 		if (!validChannels.receive.includes(channel)) return;
 		ipcRenderer.once(channel, listener);
 	},
 
-	electronIpcRemoveListener:  (channel: string, listener: (event: any, ...arg: any) => void) => {
+	electronIpcRemoveListener:  (channel: string, listener: (event: any, ...args: any) => void) => {
+		console.log({ channel, listener });
 		ipcRenderer.removeListener(channel, listener);
 	},
 
 	electronIpcRemoveAllListeners: (channel: string) => {
+		console.log({ channel });
 		ipcRenderer.removeAllListeners(channel);
 	}
   };
