@@ -12,7 +12,7 @@ class Main {
 			nodeIntegration: false,
 			worldSafeExecuteJavaScript: true,
 			contextIsolation: true,
-			preload: `${__dirname}/preload.ts`
+			preload: `${__dirname}/preload.js`
 		}
     };
 	private mainWindow!: BrowserWindow;
@@ -22,6 +22,7 @@ class Main {
 	constructor() {
 		this.app = app;
 		this.setListeners();
+		this.initialiseIPC();
 	}
 
 	private createWindow(mainWindow: boolean, windowOptions?: BrowserWindowConstructorOptions): void {
@@ -52,8 +53,6 @@ class Main {
 			.on('activate', () => {
 				if (!this.mainWindow) this.createWindow(true);
 			})
-		
-		new IPCController().init();
 	}
 
 	private initialiseIPC(): void {

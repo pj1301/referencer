@@ -2,6 +2,36 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./api/ipcController.ts":
+/*!******************************!*\
+  !*** ./api/ipcController.ts ***!
+  \******************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.IPCController = void 0;
+var electron_1 = __webpack_require__(/*! electron */ "electron");
+var IPCController = /** @class */ (function () {
+    function IPCController() {
+        this.ipcMain = electron_1.ipcMain;
+    }
+    IPCController.prototype.init = function () {
+        this.ipcMain.on('toMain', function (event) {
+            var args = [];
+            for (var _i = 1; _i < arguments.length; _i++) {
+                args[_i - 1] = arguments[_i];
+            }
+            console.log({ event: event, args: args });
+        });
+    };
+    return IPCController;
+}());
+exports.IPCController = IPCController;
+
+
+/***/ }),
+
 /***/ "electron":
 /*!***************************!*\
   !*** external "electron" ***!
@@ -49,16 +79,24 @@ var exports = __webpack_exports__;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var electron_1 = __webpack_require__(/*! electron */ "electron");
+var ipcController_1 = __webpack_require__(/*! ./ipcController */ "./api/ipcController.ts");
 var Main = /** @class */ (function () {
     function Main() {
         this.defaultWindowOpt = {
             width: 800,
             height: 600,
             minWidth: 400,
-            minHeight: 350
+            minHeight: 350,
+            webPreferences: {
+                nodeIntegration: false,
+                worldSafeExecuteJavaScript: true,
+                contextIsolation: true,
+                preload: __dirname + "/preload.js"
+            }
         };
         this.app = electron_1.app;
         this.setListeners();
+        this.initialiseIPC();
     }
     Main.prototype.createWindow = function (mainWindow, windowOptions) {
         var newWindowOptions = windowOptions !== null && windowOptions !== void 0 ? windowOptions : this.defaultWindowOpt;
@@ -90,6 +128,9 @@ var Main = /** @class */ (function () {
             if (!_this.mainWindow)
                 _this.createWindow(true);
         });
+    };
+    Main.prototype.initialiseIPC = function () {
+        new ipcController_1.IPCController().init();
     };
     return Main;
 }());

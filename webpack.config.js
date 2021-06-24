@@ -25,6 +25,29 @@ module.exports = [
         devtool: 'source-map',
         target: 'electron-main'
     },
+	{
+		name: 'preload',
+		mode: process.env.NODE_ENV || 'development',
+        entry: `${__dirname}/api/preload.ts`,
+        output: {
+            path: `${__dirname}/dist/electron`,
+            filename: 'preload.js'
+        },
+        resolve: {
+            extensions: ['.ts', '.js']
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.ts?/,
+                    exclude: /node_modules/,
+                    use: 'ts-loader'
+                }
+            ]
+        },
+        devtool: 'source-map',
+        target: 'electron-preload'
+	},
     {
         name: 'ui',
         mode: process.env.NODE_ENV || 'development',

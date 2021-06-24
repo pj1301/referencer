@@ -4,7 +4,7 @@
 	"description": "Referencer App built with Electron",
 	"main": "api/main.ts",
 	"scripts": {
-		"dev:electron": "concurrently \"export $(cat config/dev.env | xargs)\" \"webpack --watch --config-name api\" \"electron ./dist/electron/main.js\"",
+		"dev:electron": "concurrently \"export $(cat config/dev.env | xargs)\" \"webpack --watch --config-name api\" \"webpack --watch --config-name preload\" \"electron ./dist/electron/main.js\"",
 		"build:electron": "export $(cat config/prod.env | xargs) && webpack --config-name api",
 		"start-inspect:electron": "export $(cat config/dev.env | xargs) && electron --inspect=5000 ./dist/electron/main.js",
 		"start:electron": "electron ./dist/electron/main.js",

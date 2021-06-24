@@ -38574,11 +38574,13 @@ var Search_1 = __importDefault(__webpack_require__(/*! ./components/Search */ ".
 var FIlters_1 = __importDefault(__webpack_require__(/*! ./components/FIlters */ "./src/components/FIlters.tsx"));
 var context_2 = __webpack_require__(/*! ./context/search/context */ "./src/context/search/context.tsx");
 var Sidebar_1 = __importDefault(__webpack_require__(/*! ./components/Sidebar */ "./src/components/Sidebar.tsx"));
+var ipc_service_1 = __webpack_require__(/*! ./services/ipc.service */ "./src/services/ipc.service.ts");
 var App = function () {
     var _a = react_1.useContext(context_1.ReferenceStore), refs = _a[0], refDispatch = _a[1];
     react_1.useEffect(function () {
         setTheme();
         actions_1.fetchItems(refDispatch);
+        ipc_service_1.initIPC();
     }, []);
     function setTheme() {
         var _a;
@@ -38702,11 +38704,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -38720,28 +38717,18 @@ var References = function () {
     var _a = react_1.useContext(context_1.ReferenceStore), refs = _a[0], refDispatch = _a[1];
     var _b = react_1.useContext(context_2.SearchQueryStore), searchQueries = _b[0], searchQueryDispatch = _b[1];
     function filterRefs(references) {
-        var results = __spreadArray([], refs);
-        var refCount = references.length;
-        var queryCount = searchQueries.length;
-        if (queryCount === 0)
+        if (searchQueries.length === 0)
             return refs;
-        var handleFilter = function (item) {
-            var index = references.indexOf(item);
-            results.splice(index, 1);
-        };
-        for (var i = 0; i < refCount; i++) {
-            for (var j = 0; j < queryCount; j++) {
-                if (!references[i].title.toLowerCase().includes(searchQueries[j].toLowerCase()))
-                    handleFilter(references[i]);
-                else if (!references[i].authors.toLowerCase().includes(searchQueries[j].toLowerCase()))
-                    handleFilter(references[i]);
-                else if (!references[i].publisher.toLowerCase().includes(searchQueries[j].toLowerCase()))
-                    handleFilter(references[i]);
-                else if (!references[i].url.toLowerCase().includes(searchQueries[j].toLowerCase()))
-                    handleFilter(references[i]);
-            }
-        }
-        return results;
+        var refIndexes = references.map(function (ref) {
+            return {
+                refId: ref.id,
+                index: [ref.title, ref.publisher, ref.authors, ref.url].join(', ')
+            };
+        });
+        var matQuery = new RegExp("(?=.*" + searchQueries.join(')(?=.*') + ")");
+        return refIndexes
+            .filter(function (ref) { return ref.index.toLowerCase().match(matQuery); })
+            .map(function (ref) { return refs.find(function (reference) { return ref.refId === reference.id; }); });
     }
     function editReference(id) { console.log({ action: 'edit', id: id }); }
     function removeReference(id) {
@@ -39139,6 +39126,25 @@ exports.months = [
     'November',
     'December'
 ];
+
+
+/***/ }),
+
+/***/ "./src/services/ipc.service.ts":
+/*!*************************************!*\
+  !*** ./src/services/ipc.service.ts ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+// const { rendererBridge } = window;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.initIPC = void 0;
+function initIPC() {
+    console.log(window.api);
+}
+exports.initIPC = initIPC;
 
 
 /***/ }),
