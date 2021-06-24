@@ -1,4 +1,4 @@
-import { app, App, BrowserWindow, Session, BrowserWindowConstructorOptions, ipcMain, contextBridge, ipcRenderer } from 'electron';
+import { app, App, BrowserWindow, Session, BrowserWindowConstructorOptions } from 'electron';
 import { IPCController } from './ipcController';
 
 class Main {
